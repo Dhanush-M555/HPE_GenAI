@@ -133,4 +133,3 @@ class Settings:
             "max_snapshots": self.max_snapshots  # 🔹 Added to dictionary
         }
         return data
-

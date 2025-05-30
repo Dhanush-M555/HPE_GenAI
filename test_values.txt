@@ -74,4 +74,3 @@ System 5000:
 System 5001:
     Max Throughput=250MB/s
     Max Capacity=2500 GB
-

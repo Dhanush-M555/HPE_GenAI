@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Storage System Simulator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,17 +15,17 @@
             --text-light: #fff;
             --bg-light: #f5f5f5;
             --card-bg: rgba(255, 255, 255, 0.95);
-            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --border-radius: 8px;
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
             background: linear-gradient(45deg, #6b48ff, #00ddeb, #ff6b6b, #48ff6b);
@@ -33,19 +34,27 @@
             color: var(--text-dark);
             overflow-x: hidden;
         }
-        
+
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
+
         .container {
             position: relative;
             display: flex;
             min-height: 100vh;
         }
-        
+
         .sidebar {
             position: fixed;
             left: -280px;
@@ -59,12 +68,12 @@
             transition: var(--transition);
             overflow-y: auto;
         }
-        
+
         .sidebar.active {
             left: 0;
             width: 50%;
         }
-        
+
         .sidebar-toggle {
             position: fixed;
             top: 20px;
@@ -83,17 +92,17 @@
             font-size: 18px;
             transition: var(--transition);
         }
-        
+
         .sidebar-toggle:hover {
             background: var(--primary);
             color: var(--text-light);
         }
-        
+
         /* Add spacing to prevent sidebar heading from overlapping with toggle button */
         .sidebar h2:first-child {
             margin-top: 60px;
         }
-        
+
         .main {
             flex-grow: 1;
             padding: 20px;
@@ -102,7 +111,7 @@
             margin-top: 60px;
             width: 100%;
         }
-        
+
         .card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
@@ -115,12 +124,12 @@
             max-width: 100%;
             box-sizing: border-box;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         h1 {
             color: var(--text-dark);
             margin-bottom: 25px;
@@ -128,7 +137,7 @@
             text-align: center;
             font-size: 32px;
         }
-        
+
         h2 {
             color: var(--text-dark);
             margin-bottom: 15px;
@@ -138,19 +147,19 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         h3 {
             color: var(--text-dark);
             margin-bottom: 10px;
             font-weight: 500;
             font-size: 18px;
         }
-        
+
         .section-icon {
             color: var(--primary);
             font-size: 24px;
         }
-        
+
         .btn {
             padding: 10px 15px;
             margin: 5px;
@@ -166,63 +175,64 @@
             justify-content: center;
             gap: 8px;
         }
-        
+
         .btn-sm {
             padding: 8px 12px;
             font-size: 14px;
         }
-        
+
         .btn:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        
+
         .btn-success {
             background: var(--success);
         }
-        
+
         .btn-success:hover {
             background: #36dd59;
         }
-        
+
         .btn-danger {
             background: var(--danger);
         }
-        
+
         .btn-danger:hover {
             background: #e95757;
         }
-        
+
         .btn-secondary {
             background: var(--secondary);
             color: var(--text-dark);
         }
-        
+
         .btn-secondary:hover {
             background: #00c7d3;
         }
-        
+
         .crud-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
             margin-top: 15px;
         }
-        
+
         .form-control {
             display: flex;
             flex-direction: column;
             margin-bottom: 15px;
         }
-        
+
         .form-control label {
             margin-bottom: 6px;
             font-weight: 500;
             font-size: 14px;
         }
-        
-        select, input {
+
+        select,
+        input {
             padding: 10px 15px;
             border-radius: var(--border-radius);
             border: 1px solid #ddd;
@@ -230,13 +240,14 @@
             background: white;
             font-size: 16px;
         }
-        
-        select:focus, input:focus {
+
+        select:focus,
+        input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(107, 72, 255, 0.2);
         }
-        
+
         select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333' width='18px' height='18px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
@@ -244,7 +255,7 @@
             background-position: right 10px center;
             padding-right: 30px;
         }
-        
+
         pre {
             background: #f8f8f8;
             padding: 15px;
@@ -257,24 +268,24 @@
             text-align: left;
             white-space: pre-wrap;
         }
-        
+
         /* Sidebar JSON Output */
         .json-container {
             margin-top: 20px;
         }
-        
+
         .json-buttons {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
             margin-bottom: 15px;
         }
-        
+
         /* Hide elements initially */
         .initially-hidden {
             display: none;
         }
-        
+
         /* Applied Settings */
         .applied-settings-container {
             margin-top: 15px;
@@ -282,7 +293,7 @@
             background: var(--bg-light);
             border-radius: var(--border-radius);
         }
-        
+
         .setting-block {
             position: relative;
             padding: 12px;
@@ -295,12 +306,12 @@
             min-width: 180px;
             width: 45%;
         }
-        
+
         .setting-block:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
-        
+
         .setting-block .remove-btn {
             position: absolute;
             top: 5px;
@@ -315,11 +326,11 @@
             justify-content: center;
             border-radius: 50%;
         }
-        
+
         .setting-block .remove-btn:hover {
             background: rgba(255, 107, 107, 0.1);
         }
-        
+
         .setting-tooltip {
             display: none;
             position: absolute;
@@ -333,11 +344,11 @@
             top: 100%;
             left: 0;
         }
-        
+
         .setting-block:hover .setting-tooltip {
             display: block;
         }
-        
+
         /* Logs Modal */
         .logs-button {
             position: fixed;
@@ -353,12 +364,12 @@
             z-index: 999;
             transition: var(--transition);
         }
-        
+
         .logs-button:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
         }
-        
+
         .logs-modal {
             display: none;
             position: fixed;
@@ -370,10 +381,10 @@
             background: white;
             padding: 20px;
             border-radius: var(--border-radius);
-            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
-        
+
         .logs-content {
             max-height: 60vh;
             overflow-y: auto;
@@ -385,13 +396,13 @@
             border-radius: var(--border-radius);
             border: 1px solid #eee;
         }
-        
+
         .logs-tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
         }
-        
+
         .logs-tab {
             padding: 8px 15px;
             cursor: pointer;
@@ -399,31 +410,31 @@
             border-radius: var(--border-radius);
             transition: var(--transition);
         }
-        
+
         .logs-tab.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
         }
-        
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .card {
                 padding: 15px;
             }
-            
+
             .crud-buttons {
                 flex-direction: column;
                 width: 100%;
             }
-            
+
             .btn {
                 width: 100%;
                 margin: 3px 0;
             }
         }
 
-               /* Add these styles within the existing <style> tag */
+        /* Add these styles within the existing <style> tag */
         .latency-container {
             display: flex;
             flex-wrap: wrap;
@@ -432,7 +443,8 @@
         }
 
         .chart-container {
-            width: calc(50% - 10px); /* Two charts per row with gap */
+            width: calc(50% - 10px);
+            /* Two charts per row with gap */
             height: 300px;
             background: #f9f9f9;
             border-radius: var(--border-radius);
@@ -442,7 +454,8 @@
 
         @media (max-width: 768px) {
             .chart-container {
-                width: 100%; /* Full width on smaller screens */
+                width: 100%;
+                /* Full width on smaller screens */
             }
         }
 
@@ -488,7 +501,8 @@
         .fault-button {
             position: fixed;
             top: 20px;
-            right: 150px; /* Position it to the left of the logs button */
+            right: 150px;
+            /* Position it to the left of the logs button */
             background: var(--danger);
             color: white;
             border: none;
@@ -506,7 +520,7 @@
         }
 
         /* ... existing styles ... */
-        
+
         .warning-message {
             color: #856404;
             background-color: #fff3cd;
@@ -527,7 +541,7 @@
             z-index: 1500;
             display: none;
         }
-        
+
         /* Style for the close button in the corner */
         .modal-close {
             position: absolute;
@@ -544,7 +558,7 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        
+
         .modal-close:hover {
             background: #e95757;
             transform: scale(1.1);
@@ -553,11 +567,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
     <button class="sidebar-toggle" id="sidebar-toggle">
         <i class="fas fa-bars"></i>
     </button>
-    
+
     <div class="container">
         <div class="sidebar" id="sidebar">
             <h2><i class="fas fa-database section-icon"></i> JSON Data</h2>
@@ -579,7 +594,7 @@
                 <pre id="json-output"></pre>
             </div>
         </div>
-        
+
         <div class="main">
             <h1>Storage System Simulator</h1>
 
@@ -637,8 +652,9 @@
                 </div>
                 <div class="applied-settings-container" id="applied-settings-container" style="display: none;">
                     <h3>Applied Settings</h3>
-                    <div id="applied-settings-list" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0;"></div>
-                    
+                    <div id="applied-settings-list" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0;">
+                    </div>
+
                     <!-- Replace checkboxes with dropdown -->
                     <div style="margin: 10px 0; display: flex; gap: 10px; align-items: center;">
                         <select id="new-setting-select" style="flex-grow: 1;">
@@ -648,7 +664,7 @@
                             <i class="fas fa-plus"></i> Add
                         </button>
                     </div>
-                
+
                     <div style="margin-top: 10px;">
                         <button class="btn btn-secondary" onclick="updateVolumeSettings()">
                             <i class="fas fa-sync-alt"></i> Update Volume
@@ -771,7 +787,7 @@
                         <option value="128">128 KB</option>
                     </select>
                 </div>
-                
+
                 <div class="crud-buttons">
                     <button class="btn btn-success" onclick="exportVolume()">
                         <i class="fas fa-share-square"></i> Export Volume
@@ -817,28 +833,29 @@
                             <option value="replication">Replication</option>
                         </select>
                     </div>
-                    <div class="form-control" id="value-container" style="display: none;"> <!-- Hide this old container -->
+                    <div class="form-control" id="value-container" style="display: none;">
+                        <!-- Hide this old container -->
                         <label for="setting_value">Setting Value</label>
                         <input id="setting_value" placeholder="Enter value">
                     </div>
                     <!-- New Snapshot Frequency Container -->
                     <div class="form-control" id="snapshot-frequency-row" style="display: none;">
-                        <label for="snapshot_value">Snapshot Frequency</label> 
-                        <div style="display: flex; gap: 10px; align-items: center;"> 
+                        <label for="snapshot_value">Snapshot Frequency</label>
+                        <div style="display: flex; gap: 10px; align-items: center;">
                             <input type="number" id="snapshot_value" placeholder="Value" min="1" style="flex-grow: 1;">
-                            <select id="snapshot_unit" style="flex-basis: 120px;"> 
+                            <select id="snapshot_unit" style="flex-basis: 120px;">
                                 <option value="seconds">Seconds</option>
-                                <option value="minutes" selected>Minutes</option> 
+                                <option value="minutes" selected>Minutes</option>
                                 <option value="hours">Hours</option>
                             </select>
                         </div>
                     </div>
                     <!-- Removed old separate value/unit containers -->
-                    <div class="form-control" id="max-snapshots-container" style="display: none;"> 
+                    <div class="form-control" id="max-snapshots-container" style="display: none;">
                         <label for="max_snapshots">Max Snapshots</label>
                         <input type="number" id="max_snapshots" min="1" placeholder="Enter max snapshots">
                     </div>
-                    
+
                 </div>
                 <div class="initially-hidden" id="replication-controls">
                     <div class="form-control">
@@ -896,13 +913,13 @@
                     </table>
                 </div>
             </div>
-            
+
             <!-- Latency Card -->
             <div class="card" id="latency-card">
                 <h2><i class="fas fa-chart-line section-icon"></i> Exported Volumes - Latency Over Last 15 Minutes</h2>
                 <div id="exportedVolumesCharts"></div>
             </div>
-            
+
             <!-- Latency History Card -->
             <div class="card initially-hidden" id="latencyGraphCard">
                 <h2><i class="fas fa-chart-line section-icon"></i> Volume Latency History</h2>
@@ -921,7 +938,7 @@
     <button class="fault-button" onclick="showFaultInjection()">
         <i class="fas fa-bolt"></i> Fault Injection
     </button>
-    
+
     <div id="fault-modal" class="logs-modal">
         <h2><i class="fas fa-bolt section-icon"></i> Replication Link Fault Injection</h2>
         <div class="form-section">
@@ -951,7 +968,7 @@
                 </button>
             </div>
         </div>
-        
+
         <div id="active-faults-container" style="margin-top: 20px; display: none;">
             <h3>Active Faults</h3>
             <div class="table-container">
@@ -969,7 +986,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="logs-modal" class="logs-modal">
         <h2><i class="fas fa-list-alt section-icon"></i> System Logs</h2>
         <div class="logs-tabs">
@@ -981,7 +998,7 @@
             <i class="fas fa-times"></i> Close
         </button>
     </div>
-    
+
     <!-- Volume Latency History Modal -->
     <div id="latency-history-backdrop" class="modal-backdrop"></div>
     <div id="latency-history-modal" class="logs-modal" style="max-width: 850px; width: 90%; z-index: 1501;">
@@ -990,7 +1007,8 @@
         </div>
         <h2><i class="fas fa-chart-line section-icon"></i> Volume Latency History</h2>
         <h3 id="modal-graph-title" style="text-align: center; color: var(--primary);"></h3>
-        <div style="height: 400px; margin: 20px 0; padding: 10px; background: #f8f8f8; border-radius: var(--border-radius);">
+        <div
+            style="height: 400px; margin: 20px 0; padding: 10px; background: #f8f8f8; border-radius: var(--border-radius);">
             <canvas id="modal-latency-chart"></canvas>
         </div>
     </div>
@@ -1082,7 +1100,7 @@
     </script>
 
 
-    
+
     <script>
         async function fetchTopLatency() {
             try {
@@ -1128,101 +1146,101 @@
     </script>
 
     <!-- Load Chart.js first -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-    let latencyChart = null; // Store the Chart.js instance
+    <script>
+        let latencyChart = null; // Store the Chart.js instance
 
-async function fetchLatencyHistory(volumeId) {
-    try {
-        const response = await fetch(`/api/latency-history/${volumeId}`);
-        const data = await response.json();
-        console.log("Latency History Data:", data);
+        async function fetchLatencyHistory(volumeId) {
+            try {
+                const response = await fetch(`/api/latency-history/${volumeId}`);
+                const data = await response.json();
+                console.log("Latency History Data:", data);
 
-        if (!data.latency_data || data.latency_data.length === 0) {
-            alert("No latency data available for the past hour.");
-            return;
-        }
-
-        // Extract timestamps and latency values
-        const timestamps = data.latency_data.map(entry => entry.timestamp);
-        const latencies = data.latency_data.map(entry => entry.latency);
-
-        // Render the graph in the modal
-        renderLatencyGraph(volumeId, timestamps, latencies);
-
-        // Show the modal and backdrop
-        document.getElementById('latency-history-backdrop').style.display = 'block';
-        document.getElementById('latency-history-modal').style.display = 'block';
-        
-        // Add click handler to backdrop
-        document.getElementById('latency-history-backdrop').onclick = closeLatencyHistory;
-
-    } catch (error) {
-        console.error("Error fetching latency history:", error);
-        alert("Failed to load latency history.");
-    }
-}
-
-function renderLatencyGraph(volumeId, timestamps, latencies) {
-    const ctx = document.getElementById('modal-latency-chart').getContext('2d');
-
-    // Destroy the previous chart instance before creating a new one
-    if (latencyChart) {
-        latencyChart.destroy();
-    }
-
-    // Update graph title
-    document.getElementById('modal-graph-title').innerText = `Latency for ${volumeId} (Last Hour)`;
-
-    // Create a new line chart
-    latencyChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: timestamps,
-            datasets: [{
-                label: `Latency for ${volumeId}`,
-                data: latencies,
-                borderColor: 'blue',
-                borderWidth: 2,
-                fill: false,
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    title: { display: true, text: 'Time' },
-                    ticks: { maxTicksLimit: 10 }
-                },
-                y: {
-                    title: { display: true, text: 'Latency (ms)' },
-                    beginAtZero: true
+                if (!data.latency_data || data.latency_data.length === 0) {
+                    alert("No latency data available for the past hour.");
+                    return;
                 }
-            },
-            plugins: {
-                legend: { position: 'top' }
+
+                // Extract timestamps and latency values
+                const timestamps = data.latency_data.map(entry => entry.timestamp);
+                const latencies = data.latency_data.map(entry => entry.latency);
+
+                // Render the graph in the modal
+                renderLatencyGraph(volumeId, timestamps, latencies);
+
+                // Show the modal and backdrop
+                document.getElementById('latency-history-backdrop').style.display = 'block';
+                document.getElementById('latency-history-modal').style.display = 'block';
+
+                // Add click handler to backdrop
+                document.getElementById('latency-history-backdrop').onclick = closeLatencyHistory;
+
+            } catch (error) {
+                console.error("Error fetching latency history:", error);
+                alert("Failed to load latency history.");
             }
         }
-    });
-}
 
-function closeLatencyHistory() {
-    document.getElementById('latency-history-backdrop').style.display = 'none';
-    document.getElementById('latency-history-modal').style.display = 'none';
-}
+        function renderLatencyGraph(volumeId, timestamps, latencies) {
+            const ctx = document.getElementById('modal-latency-chart').getContext('2d');
 
-</script>
+            // Destroy the previous chart instance before creating a new one
+            if (latencyChart) {
+                latencyChart.destroy();
+            }
+
+            // Update graph title
+            document.getElementById('modal-graph-title').innerText = `Latency for ${volumeId} (Last Hour)`;
+
+            // Create a new line chart
+            latencyChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: timestamps,
+                    datasets: [{
+                        label: `Latency for ${volumeId}`,
+                        data: latencies,
+                        borderColor: 'blue',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Time' },
+                            ticks: { maxTicksLimit: 10 }
+                        },
+                        y: {
+                            title: { display: true, text: 'Latency (ms)' },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top' }
+                    }
+                }
+            });
+        }
+
+        function closeLatencyHistory() {
+            document.getElementById('latency-history-backdrop').style.display = 'none';
+            document.getElementById('latency-history-modal').style.display = 'none';
+        }
+
+    </script>
 
 
     <script>
-        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+        document.getElementById('sidebar-toggle').addEventListener('click', function () {
             document.getElementById('sidebar').classList.toggle('active');
         });
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const sidebar = document.getElementById('sidebar');
             const toggle = document.getElementById('sidebar-toggle');
             if (!sidebar.contains(event.target) && event.target !== toggle && !toggle.contains(event.target)) {
@@ -1246,14 +1264,14 @@ function closeLatencyHistory() {
             const select = document.getElementById(selectId);
             // Store currently selected value before updating
             const currentValue = select.value;
-            
+
             select.innerHTML = '<option value="">Select...</option>';
             fetch(`/data/${resource}`).then(res => res.json()).then(data => {
                 if (data.length === 0) return;
-                
+
                 // Flag to check if current value still exists in data
                 let currentValueExists = false;
-                
+
                 data.forEach(item => {
                     const option = document.createElement('option');
                     option.value = item[idField];
@@ -1262,19 +1280,19 @@ function closeLatencyHistory() {
                     } else {
                         option.text = `${item[nameField]} (ID: ${item[idField]})`;
                     }
-                    
+
                     // Set option as selected if it matches the previously selected value
                     if (currentValue && item[idField] === currentValue) {
                         option.selected = true;
                         currentValueExists = true;
                     }
-                    
+
                     select.appendChild(option);
                 });
-                
+
                 // Only trigger visibility checks if selection changed
                 const selectionChanged = (currentValue !== select.value);
-                
+
                 if (selectionChanged) {
                     if (selectId === 'node_system_id') checkNodeFormVisibility();
                     if (selectId === 'volume_system_id') checkVolumeFormVisibility();
@@ -1291,12 +1309,12 @@ function closeLatencyHistory() {
             fetch('/data/system').then(res => res.json()).then(systems => {
                 const visible = systems && systems.length > 0;
                 const systemId = visible ? systems[0].id : '';
-                
+
                 document.getElementById('volume-no-system-message').style.display = visible ? 'none' : 'block';
                 document.getElementById('volume-name-container').style.display = visible ? 'block' : 'none';
                 document.getElementById('volume-size-container').style.display = visible ? 'block' : 'none';
                 document.getElementById('create-volume-btn').style.display = visible ? 'inline' : 'none';
-                
+
                 if (visible) {
                     document.getElementById('volume_system_id').value = systemId; // Hidden field for reference
                     updateDropdown('volume', 'volume_id', 'id', 'name');
@@ -1312,7 +1330,7 @@ function closeLatencyHistory() {
             const visible = volumeId;
             document.getElementById('get-volume-btn').style.display = visible ? 'inline' : 'none';
             document.getElementById('delete-volume-btn').style.display = visible ? 'inline' : 'none';
-            
+
             if (visible) {
                 showVolumeSettings(volumeId);
             } else {
@@ -1324,13 +1342,13 @@ function closeLatencyHistory() {
             fetch('/data/system').then(res => res.json()).then(systems => {
                 const visible = systems && systems.length > 0;
                 const systemId = visible ? systems[0].id : '';
-                
+
                 document.getElementById('host-no-system-message').style.display = visible ? 'none' : 'block';
                 document.getElementById('host-name-container').style.display = visible ? 'block' : 'none';
                 document.getElementById('application-type-container').style.display = visible ? 'block' : 'none';
                 document.getElementById('protocol-container').style.display = visible ? 'block' : 'none';
                 document.getElementById('create-host-btn').style.display = visible ? 'inline' : 'none';
-                
+
                 if (visible) {
                     document.getElementById('host_system_id').value = systemId; // Hidden field for reference
                     fetch('/data/host').then(res => res.json()).then(data => {
@@ -1365,11 +1383,11 @@ function closeLatencyHistory() {
             fetch('/data/system').then(res => res.json()).then(systems => {
                 const visible = systems && systems.length > 0;
                 const systemId = visible ? systems[0].id : '';
-                
+
                 document.getElementById('settings-no-system-message').style.display = visible ? 'none' : 'block';
                 document.getElementById('create-settings-btn').style.display = visible ? 'inline' : 'none';
                 document.getElementById('setting-details-container').style.display = visible ? 'block' : 'none';
-                
+
                 if (visible) {
                     document.getElementById('settings_system_id').value = systemId; // Hidden field for reference
                     updateDropdown('settings', 'settings_id', 'id', 'system_id');
@@ -1391,36 +1409,36 @@ function closeLatencyHistory() {
         function createSystem() {
             const maxThroughput = document.getElementById('max_throughput').value;
             const maxCapacity = document.getElementById('max_capacity').value;
-            
-            fetch('/system', { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ 
+
+            fetch('/system', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
                     max_throughput: maxThroughput,
                     max_capacity: maxCapacity
-                }) 
+                })
             })
                 .then(res => res.json())
                 .then(data => {
                     showResponse(data);
-                    
+
                     // Set system ID to hidden fields
                     if (data.id) {
                         document.getElementById('volume_system_id').value = data.id;
                         document.getElementById('host_system_id').value = data.id;
                         document.getElementById('settings_system_id').value = data.id;
-                        
+
                         // Hide no-system messages
                         document.getElementById('volume-no-system-message').style.display = 'none';
                         document.getElementById('host-no-system-message').style.display = 'none';
                         document.getElementById('settings-no-system-message').style.display = 'none';
                     }
-                    
+
                     // Update form visibility
                     checkVolumeFormVisibility();
                     checkHostFormVisibility();
                     checkSettingsFormVisibility();
-                    
+
                     document.getElementById('update-system-btn').style.display = 'inline';
                     document.getElementById('delete-system-btn').style.display = 'inline';
                 });
@@ -1445,33 +1463,33 @@ function closeLatencyHistory() {
         function deleteSystem() {
             fetch('/system', { method: 'DELETE' }).then(() => {
                 showResponse({ message: "System deleted" });
-                
+
                 // Clear hidden system ID fields
                 document.getElementById('volume_system_id').value = '';
                 document.getElementById('host_system_id').value = '';
                 document.getElementById('settings_system_id').value = '';
-                
+
                 // Show no-system messages
                 document.getElementById('volume-no-system-message').style.display = 'block';
                 document.getElementById('host-no-system-message').style.display = 'block';
                 document.getElementById('settings-no-system-message').style.display = 'block';
-                
+
                 // Hide all forms
                 document.getElementById('volume-name-container').style.display = 'none';
                 document.getElementById('volume-size-container').style.display = 'none';
                 document.getElementById('create-volume-btn').style.display = 'none';
                 document.getElementById('volume-id-container').style.display = 'none';
-                
+
                 document.getElementById('host-name-container').style.display = 'none';
                 document.getElementById('application-type-container').style.display = 'none';
                 document.getElementById('protocol-container').style.display = 'none';
                 document.getElementById('create-host-btn').style.display = 'none';
                 document.getElementById('host-id-container').style.display = 'none';
-                
+
                 document.getElementById('create-settings-btn').style.display = 'none';
                 document.getElementById('setting-details-container').style.display = 'none';
                 document.getElementById('settings-id-container').style.display = 'none';
-                
+
                 document.getElementById('update-system-btn').style.display = 'none';
                 document.getElementById('delete-system-btn').style.display = 'none';
             });
@@ -1481,26 +1499,26 @@ function closeLatencyHistory() {
             const system_id = document.getElementById('volume_system_id').value;
             const name = document.getElementById('volume_name').value;
             const size = document.getElementById('volume_size').value;
-            
+
             if (!system_id || !name) return showResponse({ error: "System ID and Volume name required" });
             if (!size) return showResponse({ error: "Volume size is required" });
-            
-            fetch('/volume', { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ 
-                    system_id, 
+
+            fetch('/volume', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_id,
                     name,
                     size: parseInt(size)
-                }) 
+                })
             })
                 .then(res => res.json())
-                .then(data => { 
-                    showResponse(data); 
+                .then(data => {
+                    showResponse(data);
                     // Update all volume dropdowns
                     updateDropdown('volume', 'volume_id', 'id', 'name');
                     updateDropdown('volume', 'export_volume_id', 'id', 'name');
-                    
+
                     // Clear the input fields for next use
                     document.getElementById('volume_name').value = '';
                     document.getElementById('volume_size').value = '';
@@ -1527,18 +1545,18 @@ function closeLatencyHistory() {
             const name = document.getElementById('host_name').value;
             const applicationType = document.getElementById('application_type').value;
             const protocol = document.getElementById('protocol').value;
-            
+
             if (!systemId) return alert("No system available. Please create a system first.");
-            
-            fetch('/host', { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ 
-                    system_id: systemId, 
-                    name, 
-                    application_type: applicationType, 
-                    protocol 
-                }) 
+
+            fetch('/host', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_id: systemId,
+                    name,
+                    application_type: applicationType,
+                    protocol
+                })
             })
                 .then(res => res.json())
                 .then(data => {
@@ -1547,7 +1565,7 @@ function closeLatencyHistory() {
                     updateDropdown('host', 'host_id', 'id', 'name');
                     updateDropdown('host', 'export_host_id', 'id', 'name');
                     document.getElementById('host-id-container').style.display = 'block';
-                    
+
                     // Clear the input fields for next use
                     document.getElementById('host_name').value = '';
                 });
@@ -1594,19 +1612,19 @@ function closeLatencyHistory() {
         function createSetting() {
             const name = document.getElementById('setting_name').value;
             const type = document.getElementById('setting_type').value;
-            
+
             // Get the hidden system ID
             const systemId = document.getElementById('settings_system_id').value;
 
-            if (!name || !type) 
+            if (!name || !type)
                 return alert("Fill all required fields");
-            
+
             if (!systemId)
                 return alert("No system exists. Please create a system first.");
 
             const data = {
-                name, 
-                type, 
+                name,
+                type,
                 system_id: systemId
             };
 
@@ -1641,7 +1659,7 @@ function closeLatencyHistory() {
                 } else {
                     return alert("Max snapshots value is required"); // Make max snapshots mandatory
                 }
-                
+
             } else if (type === 'replication') {
                 const replicationType = document.getElementById('replication_type').value;
                 const delaySec = parseInt(document.getElementById('delay_sec').value);
@@ -1649,7 +1667,7 @@ function closeLatencyHistory() {
                 const targetName = document.getElementById('replication_target').selectedOptions[0].text;
 
                 if (!targetId) return alert("Select a target system");
-                if (replicationType === 'asynchronous' && delaySec <= 0) 
+                if (replicationType === 'asynchronous' && delaySec <= 0)
                     return alert("Delay must be greater than 0 for asynchronous replication");
 
                 data.replication_type = replicationType;
@@ -1664,7 +1682,7 @@ function closeLatencyHistory() {
                 // ✅ Add max_snapshots if type is snapshot
                 if (type === 'snapshot') {
                     const maxSnapshots = parseInt(document.getElementById('max_snapshots').value);
-                    if (!maxSnapshots || maxSnapshots <= 0) 
+                    if (!maxSnapshots || maxSnapshots <= 0)
                         return alert("Max snapshots must be greater than 0");
                     data.max_snapshots = maxSnapshots;
                 }
@@ -1675,24 +1693,24 @@ function closeLatencyHistory() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error);
-                } else {
-                    alert(data.message || "Setting created");
-                    // Update settings dropdown
-                    updateDropdown('settings', 'settings_id', 'id', 'system_id');
-                    
-                    // Clear the input fields for next use
-                    document.getElementById('setting_name').value = '';
-                    document.getElementById('setting_value').value = '';
-                    if (type === 'snapshot') {
-                        document.getElementById('snapshot_value').value = '';
-                        document.getElementById('max_snapshots').value = '';
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        alert(data.message || "Setting created");
+                        // Update settings dropdown
+                        updateDropdown('settings', 'settings_id', 'id', 'system_id');
+
+                        // Clear the input fields for next use
+                        document.getElementById('setting_name').value = '';
+                        document.getElementById('setting_value').value = '';
+                        if (type === 'snapshot') {
+                            document.getElementById('snapshot_value').value = '';
+                            document.getElementById('max_snapshots').value = '';
+                        }
                     }
-                }
-            });
+                });
         }
 
         function loadGlobalSystems() {
@@ -1708,7 +1726,7 @@ function closeLatencyHistory() {
             });
         }
 
-        document.getElementById('setting_type').addEventListener('change', function() {
+        document.getElementById('setting_type').addEventListener('change', function () {
             const type = this.value;
             const replicationControls = document.getElementById('replication-controls');
             replicationControls.style.display = type === 'replication' ? 'block' : 'none';
@@ -1763,9 +1781,9 @@ function closeLatencyHistory() {
             if (!volumeId) return alert("Select a volume");
             fetch('/unexport-volume', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ volume_id: volumeId }) })
                 .then(res => res.json())
-                .then(data => { 
-                    alert(data.message || "Unexported"); 
-                    loadExportedVolumes(); 
+                .then(data => {
+                    alert(data.message || "Unexported");
+                    loadExportedVolumes();
                     // Update volume dropdowns after unexport to reflect availability
                     updateDropdown('volume', 'volume_id', 'id', 'name');
                     updateDropdown('volume', 'export_volume_id', 'id', 'name');
@@ -1775,7 +1793,7 @@ function closeLatencyHistory() {
         function handleReplicationType() {
             const type = document.getElementById('replication_type').value;
             const delayInput = document.getElementById('delay_sec');
-            
+
             if (type === 'synchronous') {
                 delayInput.value = 0;
                 delayInput.disabled = true;
@@ -1787,12 +1805,12 @@ function closeLatencyHistory() {
 
         function loadAvailableTargets() {
             const currentSystemId = document.getElementById('settings_system_id').value;
-            
+
             if (!currentSystemId) {
                 console.warn("No current system ID found");
                 return;
             }
-            
+
             fetch('/all-systems')
                 .then(res => res.json())
                 .then(systems => {
@@ -1815,13 +1833,13 @@ function closeLatencyHistory() {
             const snapshotFrequencyRow = document.getElementById('snapshot-frequency-row'); // New combined row
             const replicationControls = document.getElementById('replication-controls');
             const maxSnapshotsContainer = document.getElementById('max-snapshots-container'); // Get the container
-            
+
             // Hide all specific containers first
             valueContainer.style.display = 'none';
             snapshotFrequencyRow.style.display = 'none'; // Hide combined row
             replicationControls.style.display = 'none';
             maxSnapshotsContainer.style.display = 'none';
-            
+
             if (type === 'replication') {
                 replicationControls.style.display = 'block';
                 loadAvailableTargets();
@@ -1829,12 +1847,12 @@ function closeLatencyHistory() {
             } else if (type === 'snapshot') {
                 snapshotFrequencyRow.style.display = 'block'; // Show combined row
                 maxSnapshotsContainer.style.display = 'block'; // Show max snapshots
-            } 
+            }
             // Add else block if other setting types are introduced later
         }
 
         // Call this initially to set the correct visibility based on default selection
-        handleSettingTypeChange(); 
+        handleSettingTypeChange();
 
         let currentVolumeSettings = new Set();
 
@@ -1853,7 +1871,7 @@ function closeLatencyHistory() {
                 console.log('Current volume data:', volume); // Debug log
                 // Create a map of settings by ID for easy lookup
                 const settingsMap = new Map(allSettings.map(s => [s.id, s]));
-                
+
                 // Add existing snapshot settings
                 Object.entries(volume.snapshot_settings || {}).forEach(([settingId, value]) => {
                     const setting = settingsMap.get(settingId);
@@ -1908,20 +1926,20 @@ function closeLatencyHistory() {
         function updateAvailableSettings(allSettings) {
             const select = document.getElementById('new-setting-select');
             const currentValue = select.value; // Store current value
-            
+
             select.innerHTML = '<option value="">Select setting to add...</option>';
-            
+
             allSettings.forEach(setting => {
                 if (!currentVolumeSettings.has(setting.id)) {
                     const option = document.createElement('option');
                     option.value = setting.id;
                     option.text = `${setting.name} (${setting.type})`;
-                    
+
                     // Restore selection if possible
                     if (setting.id === currentValue) {
                         option.selected = true;
                     }
-                    
+
                     select.appendChild(option);
                 }
             });
@@ -1935,7 +1953,7 @@ function closeLatencyHistory() {
             }
 
             console.log("📌 Current Settings:", Array.from(currentVolumeSettings));
-            
+
             // Send the update even if there are no settings (to clear all settings)
             fetch(`/volume/${volumeId}`, {
                 method: 'PUT',
@@ -1944,19 +1962,19 @@ function closeLatencyHistory() {
                     setting_ids: Array.from(currentVolumeSettings)
                 })
             })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error);
-                } else {
-                    showVolumeSettings(volumeId);
-                    alert('✅ Settings updated successfully!');
-                }
-            })
-            .catch(err => {
-                console.error("❌ ERROR updating settings:", err);
-                alert("❌ Failed to update settings.");
-            });
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        showVolumeSettings(volumeId);
+                        alert('✅ Settings updated successfully!');
+                    }
+                })
+                .catch(err => {
+                    console.error("❌ ERROR updating settings:", err);
+                    alert("❌ Failed to update settings.");
+                });
         }
 
         function showLogs() {
@@ -2012,7 +2030,7 @@ function closeLatencyHistory() {
             });
         });
 
-        window.onload = function() {
+        window.onload = function () {
             // Create hidden fields for system IDs
             const hiddenFields = ['volume_system_id', 'host_system_id', 'settings_system_id'];
             hiddenFields.forEach(id => {
@@ -2023,7 +2041,7 @@ function closeLatencyHistory() {
                     document.body.appendChild(hiddenField);
                 }
             });
-            
+
             // Check system existence and update all forms
             fetch('/data/system').then(res => res.json()).then(systems => {
                 if (systems.length > 0) {
@@ -2031,25 +2049,25 @@ function closeLatencyHistory() {
                     hiddenFields.forEach(id => {
                         document.getElementById(id).value = systemId;
                     });
-                    
+
                     // Update all form visibility
                     checkVolumeFormVisibility();
                     checkHostFormVisibility();
                     checkSettingsFormVisibility();
-                    
+
                     // Update other dropdowns
                     updateDropdown('volume', 'export_volume_id', 'id', 'name');
                     updateDropdown('host', 'export_host_id', 'id', 'name');
                 }
             });
-            
+
             // Load other data
             fetch('/data/host').then(res => res.json()).then(data => {
                 if (data.length > 0) document.getElementById('host-id-container').style.display = 'block';
                 updateDropdown('host', 'host_id', 'id', 'name');
             });
             loadExportedVolumes();
-            
+
             // Also update fault system dropdown
             fetch('/data/replication-targets').then(res => res.json()).then(data => {
                 const select = document.getElementById('fault-target-system');
@@ -2065,7 +2083,7 @@ function closeLatencyHistory() {
             // Add user interaction tracking variables
             let lastUserInteraction = Date.now();
             const userInteractionEvents = ['click', 'keydown', 'mousemove', 'touchstart'];
-            
+
             // Update last interaction time on user activity
             userInteractionEvents.forEach(event => {
                 document.addEventListener(event, () => {
@@ -2074,10 +2092,10 @@ function closeLatencyHistory() {
             });
 
             // Set up periodic refresh of dropdowns - only if user has been inactive
-            setInterval(function() {
+            setInterval(function () {
                 const now = Date.now();
                 const inactiveTime = now - lastUserInteraction;
-                
+
                 // Only refresh if user has been inactive for at least 3 seconds
                 if (inactiveTime > 3000) {
                     if (document.getElementById('volume-card').style.display !== 'none') {
@@ -2113,12 +2131,12 @@ function closeLatencyHistory() {
         function addSelectedSetting() {
             const settingSelect = document.getElementById('new-setting-select');
             const settingId = settingSelect.value;
-            
+
             if (!settingId) {
                 alert("Please select a setting to add");
                 return;
             }
-            
+
             // Fetch the setting details and add it to the UI
             fetch('/data/all-settings')
                 .then(res => res.json())
@@ -2154,7 +2172,7 @@ function closeLatencyHistory() {
                     while (select.options.length > 1) {
                         select.remove(1);
                     }
-                    
+
                     // Add new options
                     if (data.targets && data.targets.length > 0) {
                         data.targets.forEach(target => {
@@ -2182,26 +2200,26 @@ function closeLatencyHistory() {
                 .then(data => {
                     const container = document.getElementById('active-faults-container');
                     const table = document.getElementById('active-faults-table');
-                    
+
                     // Clear existing rows
                     table.innerHTML = '';
-                    
+
                     if (data.faults && data.faults.length > 0) {
                         container.style.display = 'block';
-                        
+
                         data.faults.forEach(fault => {
                             const row = document.createElement('tr');
-                            
+
                             // Target system column
                             const targetCell = document.createElement('td');
                             targetCell.textContent = fault.target_system_name || fault.target_system_id;
                             row.appendChild(targetCell);
-                            
+
                             // Sleep time column
                             const sleepCell = document.createElement('td');
                             sleepCell.textContent = `${fault.sleep_time} ms`;
                             row.appendChild(sleepCell);
-                            
+
                             // Duration column
                             const durationCell = document.createElement('td');
                             if (fault.expires_at) {
@@ -2212,7 +2230,7 @@ function closeLatencyHistory() {
                                 durationCell.textContent = 'Permanent';
                             }
                             row.appendChild(durationCell);
-                            
+
                             // Actions column
                             const actionsCell = document.createElement('td');
                             const removeButton = document.createElement('button');
@@ -2221,7 +2239,7 @@ function closeLatencyHistory() {
                             removeButton.onclick = () => removeFault(fault.target_system_id);
                             actionsCell.appendChild(removeButton);
                             row.appendChild(actionsCell);
-                            
+
                             table.appendChild(row);
                         });
                     } else {
@@ -2237,28 +2255,28 @@ function closeLatencyHistory() {
             const targetSystemId = document.getElementById('fault-target-system').value;
             const sleepTime = document.getElementById('fault-sleep-time').value;
             const duration = document.getElementById('fault-duration').value;
-            
+
             if (!targetSystemId) {
                 alert('Please select a target system');
                 return;
             }
-            
+
             if (!sleepTime || sleepTime <= 0) {
                 alert('Sleep time must be a positive number');
                 return;
             }
-            
+
             // Build request payload
             const payload = {
                 target_system_id: targetSystemId,
                 sleep_time: parseInt(sleepTime)
             };
-            
+
             // Add duration if it's greater than 0
             if (duration && parseInt(duration) > 0) {
                 payload.duration = parseInt(duration);
             }
-            
+
             // Send request to inject fault
             fetch('/replication-fault', {
                 method: 'POST',
@@ -2267,44 +2285,44 @@ function closeLatencyHistory() {
                 },
                 body: JSON.stringify(payload)
             })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(`Error: ${data.error}`);
-                } else {
-                    alert(`Success: ${data.message}`);
-                    loadActiveFaults();
-                }
-            })
-            .catch(err => {
-                console.error("Failed to inject fault:", err);
-                alert(`Error: ${err.message}`);
-            });
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(`Error: ${data.error}`);
+                    } else {
+                        alert(`Success: ${data.message}`);
+                        loadActiveFaults();
+                    }
+                })
+                .catch(err => {
+                    console.error("Failed to inject fault:", err);
+                    alert(`Error: ${err.message}`);
+                });
         }
 
         function removeFault(targetSystemId) {
             if (!confirm('Are you sure you want to remove this fault?')) {
                 return;
             }
-            
+
             fetch(`/replication-fault/${targetSystemId}`, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(`Error: ${data.error}`);
-                } else {
-                    alert(`Success: ${data.message}`);
-                    loadActiveFaults();
-                }
-            })
-            .catch(err => {
-                console.error("Failed to remove fault:", err);
-                alert(`Error: ${err.message}`);
-            });
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(`Error: ${data.error}`);
+                    } else {
+                        alert(`Success: ${data.message}`);
+                        loadActiveFaults();
+                    }
+                })
+                .catch(err => {
+                    console.error("Failed to remove fault:", err);
+                    alert(`Error: ${err.message}`);
+                });
         }
-        
+
         // Refresh active faults every 5 seconds when modal is open
         setInterval(() => {
             if (document.getElementById('fault-modal').style.display === 'block') {
@@ -2313,4 +2331,5 @@ function closeLatencyHistory() {
         }, 5000);
     </script>
 </body>
+
 </html>

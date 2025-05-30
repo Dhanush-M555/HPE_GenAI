@@ -1,7 +1,7 @@
 import os
 import uuid
 import socket
-import datetime
+from datetime import datetime, timedelta
 import flask
 from flask import Flask, request, jsonify, send_from_directory, send_file
 from models1 import System, Volume, Host, Settings
@@ -10,16 +10,15 @@ from logger import Logger
 import json
 import requests
 import re
+import random
 
 app = Flask(__name__)
 
 print("Flask app is starting...")
 
-# Configuration for multi-instance simulation
-GLOBAL_FILE = "global_systems.json"  # Tracks all instances
-ENABLE_UI = True  # Enable UI serving
+GLOBAL_FILE = "global_systems.json"  
+ENABLE_UI = True 
 
-# Automatically find the next available port (5000+)
 
 def find_available_port(start=5000, max_instances=50):
     for port in range(start, start + max_instances):
@@ -834,23 +833,41 @@ def get_system_metrics():
 @app.route('/replication-receive', methods=['POST'])
 def replication_receive():
     data = request.get_json(silent=True) or {}
-    volume_id = data.get("volume_id")
-    replication_throughput = data.get("replication_throughput")
-    sender = data.get("sender")
-    timestamp = data.get("timestamp")
-    replication_type = data.get("replication_type", "unknown")
-    should_log = data.get("should_log", True)
-    latency = data.get("latency", 0)
     
-    # Get source volume details
-    source_volume = data.get("source_volume")
-    if source_volume:
-        # Create target volume if it doesn't exist
-        volumes = storage_mgr.load_resource("volume")
-        target_volume_name = f"{source_volume['name']}_{replication_type}{source_volume['system_name']}"
+    try:
+        volume_id = data.get('volume_id')
+        timestamp = data.get('timestamp', datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        replication_type = data.get('replication_type', 'synchronous')
+        throughput = data.get('replication_throughput', 0)
+        sender = data.get('sender', 'unknown')
+        latency = data.get('latency', 0)
+        source_volume = data.get('source_volume', {})
+        should_log = data.get('should_log', True)
         
-        # Check if target volume already exists
-        target_volume = next((v for v in volumes if v["name"] == target_volume_name), None)
+        # Validate required data
+        if not volume_id:
+            return jsonify({"error": "Missing volume_id parameter"}), 400
+        
+        # Get volume info from the target
+        target_volume_name = f"rep-{volume_id[:8]}"
+        volumes = storage_mgr.load_resource("volume")
+        target_volume = next((v for v in volumes if v.get("name") == target_volume_name), None)
+        source_system_id = sender.split('_')[-1]  # Extract the system ID from the sender
+        
+        # Metrics to record
+        new_metric = {
+            "volume_id": volume_id,
+            "target_system_id": source_system_id,
+            "host_id": "", # Will be populated by the new update_replication_metrics method
+            "timestamp": timestamp,
+            "throughput": throughput,
+            "latency": latency,
+            "io_count": random.randint(50, 500),  # Simulated I/O count
+            "replication_type": replication_type
+        }
+        
+        # Save the replication metric
+        storage_mgr.update_replication_metrics(volume_id, source_system_id, new_metric)
         
         if not target_volume:
             # Get local system info
@@ -897,30 +914,25 @@ def replication_receive():
                 except Exception as e:
                     logger.error(f"Failed to update system metrics: {str(e)}", global_log=True)
                     return jsonify({"error": f"Failed to update system metrics: {str(e)}"}), 500
-
-    if should_log:
-        # Log receiver replication event in receiver's log format - only show TimeTaken
-        if replication_type == "synchronous":
-            receiver_log = (f"Active synchronous replication received for volume {volume_id} "
-                        f"from {sender} (TimeTaken: {latency}ms)")
-        else:
-            receiver_log = (f"Received {replication_type} replication for volume {volume_id} "
-                        f"from sender {sender} (TimeTaken: {latency}ms)")
-        logger.info(receiver_log, global_log=True)
-
-    # Update target's replication metrics
-    storage_mgr.update_replication_metrics(
-        volume_id, 
-        "received_from_" + sender,
-        {
-            "throughput": replication_throughput,
-            "latency": latency,
-            "timestamp": timestamp,
-            "replication_type": replication_type
-        }
-    )
-
-    return jsonify({"message": "Replication data received"}), 200
+            else:
+                logger.error("No local system found to create replicated volume", global_log=True)
+                return jsonify({"error": "No local system found for replication target"}), 500
+                
+        # Log replication receipt as appropriate
+        if should_log:
+            if replication_type == "synchronous":
+                log_msg = (f"Received synchronous replication data for volume {target_volume_name} "
+                          f"from {sender} (latency: {latency}ms)")
+            else:
+                log_msg = (f"Received asynchronous replication data for volume {target_volume_name} "
+                          f"from {sender} (throughput: {throughput} MB/s)")
+            logger.info(log_msg, global_log=True)
+            
+        return jsonify({"status": "success", "message": "Replication data received"}), 200
+        
+    except Exception as e:
+        logger.error(f"Error in replication_receive: {str(e)}", global_log=True)
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/replication-stop', methods=['POST'])
 def replication_stop():
@@ -1108,8 +1120,8 @@ def get_latency():
         if not exported_volumes:
             return jsonify({}), 200  # Return empty if no exported volumes in this system
         
-        now = datetime.datetime.utcnow()
-        fifteen_minutes_ago = now - datetime.timedelta(minutes=15)
+        now = datetime.utcnow()
+        fifteen_minutes_ago = now - timedelta(minutes=15)
         volume_latency_data = {}
         
         with open(LOG_FILE, "r") as f:
@@ -1121,7 +1133,7 @@ def get_latency():
             match = log_pattern.search(line)
             if match:
                 timestamp_str, volume_id, host_id, iops, latency, throughput = match.groups()
-                timestamp = datetime.datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+                timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
                 
                 if timestamp >= fifteen_minutes_ago and volume_id in exported_volumes:
                     if volume_id not in volume_latency_data:
@@ -1166,8 +1178,8 @@ def get_top_latency():
         if not current_system_volumes:
             return jsonify({"top_volumes": []}), 200  # No volumes in this system
 
-        now = datetime.datetime.utcnow()
-        fifteen_minutes_ago = now - datetime.timedelta(minutes=15)
+        now = datetime.utcnow()
+        fifteen_minutes_ago = now - timedelta(minutes=15)
         volume_latency = {}
 
         with open(LOG_FILE, "r") as f:
@@ -1180,7 +1192,7 @@ def get_top_latency():
             match = log_pattern.search(line)
             if match:
                 timestamp_str, volume_id, latency = match.groups()
-                timestamp = datetime.datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+                timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
                 normalized_vol_id = volume_id.strip().lower()
                 
                 # Only include if volume belongs to current system
@@ -1237,8 +1249,8 @@ def get_latency_history(volume_id):
         if not volume:
             return jsonify({"error": "Volume not found in this system"}), 404
 
-        now = datetime.datetime.utcnow()
-        one_hour_ago = now - datetime.timedelta(hours=1)
+        now = datetime.utcnow()
+        one_hour_ago = now - timedelta(hours=1)
         latency_data = []
 
         with open(LOG_FILE, "r") as f:
@@ -1250,7 +1262,7 @@ def get_latency_history(volume_id):
             match = log_pattern.search(line)
             if match:
                 timestamp_str, vol_id, latency = match.groups()
-                timestamp = datetime.datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+                timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
                 if vol_id == volume_id and timestamp >= one_hour_ago:
                     latency_data.append({"timestamp": timestamp_str, "latency": float(latency)})
 
