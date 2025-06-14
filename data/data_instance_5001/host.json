@@ -1,0 +1,23 @@
+[
+    {
+        "id": "f247fa01-b5a1-451f-a503-c25e1c06482c",
+        "system_id": "be573566-4d26-47a5-b486-042ce510e7d5",
+        "name": "h1",
+        "application_type": "HPE",
+        "protocol": "FC"
+    },
+    {
+        "id": "d3949d31-1b42-4d2e-94a5-d9f457b021c2",
+        "system_id": "be573566-4d26-47a5-b486-042ce510e7d5",
+        "name": "h2",
+        "application_type": "Oracle",
+        "protocol": "iSCSI"
+    },
+    {
+        "id": "1bcb63e0-8310-47b3-a388-782bb69d7df8",
+        "system_id": "be573566-4d26-47a5-b486-042ce510e7d5",
+        "name": "h3",
+        "application_type": "SQL",
+        "protocol": "NVMe"
+    }
+]

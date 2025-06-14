@@ -1,0 +1,16 @@
+[
+    {
+        "id": "682c5453-ff48-43f2-924c-c855076f16cd",
+        "system_id": "65f4d1ec-1c70-48f0-9a68-51a4b357b30b",
+        "name": "h1",
+        "application_type": "HPE",
+        "protocol": "FC"
+    },
+    {
+        "id": "f22ad096-f00f-4839-841e-60e72176f093",
+        "system_id": "65f4d1ec-1c70-48f0-9a68-51a4b357b30b",
+        "name": "h2",
+        "application_type": "Oracle",
+        "protocol": "iSCSI"
+    }
+]

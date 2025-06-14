@@ -1,0 +1,44 @@
+[2025-06-14 15:21:49][INFO] System created with ID: 28b71135-956b-435f-bef3-f597d3a6f2d2
+[2025-06-14 15:21:49][INFO] Started background cleanup thread
+[2025-06-14 15:21:49][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:21:59][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:22:09][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:22:19][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:22:29][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:22:39][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:22:49][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:22:59][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:09][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:19][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:29][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:39][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:49][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:50][INFO] Started synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004
+[2025-06-14 15:23:50][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:23:50][INFO] Active synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004 (TimeTaken: 0.049ms)
+[2025-06-14 15:23:59][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:09][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:19][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:20][INFO] Volume: 47a5e8ef-b8f2-4e28-b3bc-b698d2604116, Host: fcc3f689-ae07-4a52-ba97-6f51d8a1acad, IOPS: 2000, Latency: 4.0ms, Throughput: 15.625 MB/s
+[2025-06-14 15:24:20][INFO] Active synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004 (TimeTaken: 3.047ms)
+[2025-06-14 15:24:29][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:39][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:49][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:50][INFO] Volume: 47a5e8ef-b8f2-4e28-b3bc-b698d2604116, Host: fcc3f689-ae07-4a52-ba97-6f51d8a1acad, IOPS: 2000, Latency: 4.0ms, Throughput: 15.625 MB/s
+[2025-06-14 15:24:50][INFO] Active synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004 (TimeTaken: 3.035ms)
+[2025-06-14 15:24:59][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:09][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:19][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:20][INFO] Volume: 47a5e8ef-b8f2-4e28-b3bc-b698d2604116, Host: fcc3f689-ae07-4a52-ba97-6f51d8a1acad, IOPS: 2000, Latency: 4.0ms, Throughput: 15.625 MB/s
+[2025-06-14 15:25:20][INFO] Active synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004 (TimeTaken: 3.023ms)
+[2025-06-14 15:25:29][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:39][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:49][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:50][INFO] Volume: 47a5e8ef-b8f2-4e28-b3bc-b698d2604116, Host: fcc3f689-ae07-4a52-ba97-6f51d8a1acad, IOPS: 2000, Latency: 4.0ms, Throughput: 15.625 MB/s
+[2025-06-14 15:25:51][INFO] Active synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004 (TimeTaken: 3.012ms)
+[2025-06-14 15:25:59][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:26:09][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:26:19][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:26:20][INFO] Volume: 47a5e8ef-b8f2-4e28-b3bc-b698d2604116, Host: fcc3f689-ae07-4a52-ba97-6f51d8a1acad, IOPS: 2000, Latency: 4.0ms, Throughput: 15.625 MB/s
+[2025-06-14 15:26:21][INFO] Active synchronous replication for volume 47a5e8ef-b8f2-4e28-b3bc-b698d2604116 to target System 5004 (TimeTaken: 3.024ms)
+[2025-06-14 15:26:29][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB

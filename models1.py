@@ -1,22 +1,19 @@
 import re
 
 class System:
-    def __init__(self, id, name, max_throughput=200, max_capacity=1024, saturation=0, cpu_usage=0):
+    def __init__(self, id, name, max_throughput=200, max_capacity=1024, saturation=0):
         self.id = id
         self.name = name
         self.max_throughput = max_throughput  # MBPS
         self.max_capacity = max_capacity      # GB
         self.saturation = saturation  # System saturation percentage
-        self.cpu_usage = cpu_usage    # CPU usage percentage
 
     def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
             "max_throughput": self.max_throughput,
-            "max_capacity": self.max_capacity,
-            "saturation": self.saturation,
-            "cpu_usage": self.cpu_usage
+            "max_capacity": self.max_capacity
         }
 
 
@@ -133,3 +130,4 @@ class Settings:
             "max_snapshots": self.max_snapshots  # 🔹 Added to dictionary
         }
         return data
+

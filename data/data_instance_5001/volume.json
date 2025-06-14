@@ -1,0 +1,35 @@
+[
+    {
+        "id": "95f03ba5-49d6-46f9-a588-b34f37132f8d",
+        "name": "v1",
+        "system_id": "be573566-4d26-47a5-b486-042ce510e7d5",
+        "size": 125,
+        "is_exported": true,
+        "exported_host_id": "f247fa01-b5a1-451f-a503-c25e1c06482c",
+        "workload_size": 8,
+        "snapshot_settings": {},
+        "replication_settings": []
+    },
+    {
+        "id": "d99e2eca-b35c-4357-b59b-5a269743c1a1",
+        "name": "v2",
+        "system_id": "be573566-4d26-47a5-b486-042ce510e7d5",
+        "size": 200,
+        "is_exported": true,
+        "exported_host_id": "d3949d31-1b42-4d2e-94a5-d9f457b021c2",
+        "workload_size": 32,
+        "snapshot_settings": {},
+        "replication_settings": []
+    },
+    {
+        "id": "7a4f9a99-3018-4047-8b4b-e944edd4e472",
+        "name": "v3",
+        "system_id": "be573566-4d26-47a5-b486-042ce510e7d5",
+        "size": 150,
+        "is_exported": true,
+        "exported_host_id": "1bcb63e0-8310-47b3-a388-782bb69d7df8",
+        "workload_size": 128,
+        "snapshot_settings": {},
+        "replication_settings": []
+    }
+]

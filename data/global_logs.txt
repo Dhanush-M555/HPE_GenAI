@@ -1,0 +1,6 @@
+[PORT 5003][2025-05-28 21:39:56][ERROR] Error in cleanup thread: [Errno 2] No such file or directory: 'data/data_instance_5003/system.json'
+[PORT 5004][2025-05-28 21:39:58][ERROR] Host I/O error for volume 09f696d9-4d3f-4660-9864-051a5c4396ef: [Errno 2] No such file or directory: 'data/data_instance_5004/volume.json'
+[PORT 5004][2025-05-28 21:40:02][ERROR] Error in cleanup thread: [Errno 2] No such file or directory: 'data/data_instance_5004/system.json'
+[PORT 5002][2025-05-28 21:40:05][ERROR] Error in cleanup thread: [Errno 2] No such file or directory: 'data/data_instance_5002/system.json'
+[PORT 5001][2025-05-28 21:40:06][ERROR] Host I/O error for volume 95f03ba5-49d6-46f9-a588-b34f37132f8d: [Errno 2] No such file or directory: 'data/data_instance_5001/volume.json'
+[PORT 5001][2025-05-28 21:40:06][ERROR] Host I/O error for volume 7a4f9a99-3018-4047-8b4b-e944edd4e472: [Errno 2] No such file or directory: 'data/data_instance_5001/volume.json'

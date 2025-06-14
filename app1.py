@@ -27,11 +27,16 @@ def find_available_port(start=5000, max_instances=50):
                 return port
     raise RuntimeError("No available ports found!")
 
-PORT = find_available_port() 
+def find_port():
+    return int(os.getenv("FLASK_PORT", find_available_port()))
+PORT = find_port()
+
+print(f"Using port: {PORT}")
 
 # Unique data directory for this instance
 DATA_DIR = f"data_instance_{PORT}"
 os.makedirs(DATA_DIR, exist_ok=True)
+print(f"DATA_DIR: {DATA_DIR}")
 
 # Initialize logger
 logger = Logger(port=PORT, data_dir=DATA_DIR)
@@ -269,11 +274,6 @@ def update_volume(volume_id):
             print(f"❌ ERROR: Volume {volume_id} not found.")
             return jsonify({"error": "Volume not found."}), 404
 
-        # ✅ Unexport if volume is currently exported
-        if volume.get("is_exported"):
-            print(f"🚨 Unexporting volume {volume_id} before updating settings.")
-            storage_mgr.unexport_volume(volume_id, reason="Volume update")
-
         # ✅ Get incoming data
         data = request.get_json(silent=True) or {}
         print(f"📥 Incoming data: {data}")  # Debug log
@@ -335,9 +335,10 @@ def update_volume(volume_id):
             volume["snapshot_frequencies"] = snapshot_frequencies  # ✅ Store converted values
             storage_mgr.update_resource("volume", volume_id, volume)
 
-            # ✅ Restart snapshot with converted frequencies
-            print(f"🚀 Restarting snapshot for volume {volume_id} with frequencies {snapshot_frequencies}")
-            storage_mgr.start_snapshot(volume_id, snapshot_frequencies)
+            # If volume is currently exported, restart snapshots
+            if volume.get("is_exported"):
+                print(f"🚀 Restarting snapshot for exported volume {volume_id} with frequencies {snapshot_frequencies}")
+                storage_mgr.start_snapshot(volume_id, snapshot_frequencies)
 
             return jsonify({"message": "Settings updated successfully", "volume": volume}), 200
 
@@ -714,7 +715,8 @@ def export_volume():
         print(f"❌ ERROR: {traceback.format_exc()}")  # Print full error traceback
         return jsonify({"error": str(e)}), 500
 
-data_dir = f"data_instance_{PORT}"
+# data_dir = f"data_instance_{PORT}"
+data_dir=DATA_DIR
 volume_file = os.path.join(DATA_DIR, "volume.json")
 
 # Ensure data directory exists
@@ -1148,11 +1150,16 @@ def get_latency():
         return jsonify({"error": str(e)}), 500
     
 
-LOG_FILE = os.path.join(data_dir, f"logs_{PORT}.txt")
+# LOG_FILE = os.path.join(data_dir, f"logs_{PORT}.txt")
+
+LOG_FILE = os.path.join(DATA_DIR, f"logs_{PORT}.txt")
+
+
 
 @app.route('/api/top-latency', methods=['GET'])
 def get_top_latency():
     try:
+        print(f"LOG_FILE: {LOG_FILE}")
         if not os.path.exists(LOG_FILE):
             return jsonify({"error": "Log file not found"}), 404
         

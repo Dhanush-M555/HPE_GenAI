@@ -1,0 +1,212 @@
+[
+    {
+        "timestamp": "2025-06-14 15:23:29",
+        "throughput_used": 0,
+        "capacity_used": 100.0,
+        "saturation": 0.0,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 1.0
+    },
+    {
+        "timestamp": "2025-06-14 15:23:39",
+        "throughput_used": 0,
+        "capacity_used": 100.0,
+        "saturation": 0.0,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 1.0
+    },
+    {
+        "timestamp": "2025-06-14 15:23:49",
+        "throughput_used": 0,
+        "capacity_used": 100.0,
+        "saturation": 0.0,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 1.0
+    },
+    {
+        "timestamp": "2025-06-14 15:23:50",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 1.0
+    },
+    {
+        "timestamp": "2025-06-14 15:23:59",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 1.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:00",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:09",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:19",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:29",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:39",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:49",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:24:59",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:25:09",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:25:19",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:25:29",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:25:39",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:25:49",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:25:59",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:26:09",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:26:19",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    },
+    {
+        "timestamp": "2025-06-14 15:26:29",
+        "throughput_used": 15.625,
+        "capacity_used": 100.0,
+        "saturation": 4.464285714285714,
+        "volume_capacity": 100.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 6.666666666666667,
+        "current_latency": 4.0
+    }
+]

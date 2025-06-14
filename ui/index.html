@@ -768,15 +768,18 @@
             <!-- Export Volume -->
             <div class="card" id="export-volume-card">
                 <h2><i class="fas fa-share-alt section-icon"></i> Export Volume</h2>
-                <div class="form-control">
+                <div class="form-control" id="export-no-system-message" style="display: none;">
+                    <p class="warning-message">Please create a system first to export volumes.</p>
+                </div>
+                <div class="form-control" id="export-volume-form-fields">
                     <label for="export_volume_id">Select Volume</label>
                     <select id="export_volume_id"></select>
                 </div>
-                <div class="form-control">
+                <div class="form-control" id="export-host-form-fields">
                     <label for="export_host_id">Select Host</label>
                     <select id="export_host_id"></select>
                 </div>
-                <div class="form-control">
+                <div class="form-control" id="export-workload-form-fields">
                     <label for="workload_size">Workload Size</label>
                     <select id="workload_size" name="workload_size">
                         <option value="4">4 KB</option>
@@ -787,8 +790,7 @@
                         <option value="128">128 KB</option>
                     </select>
                 </div>
-
-                <div class="crud-buttons">
+                <div class="crud-buttons" id="export-volume-buttons">
                     <button class="btn btn-success" onclick="exportVolume()">
                         <i class="fas fa-share-square"></i> Export Volume
                     </button>
@@ -798,13 +800,16 @@
             <!-- Unexport Volume -->
             <div class="card" id="unexport-volume-card">
                 <h2><i class="fas fa-unlink section-icon"></i> Unexport Volume</h2>
-                <div class="form-control">
+                <div class="form-control" id="unexport-no-system-message" style="display: none;">
+                    <p class="warning-message">Please create a system first to unexport volumes.</p>
+                </div>
+                <div class="form-control" id="unexport-volume-form-fields">
                     <label for="volume-select">Select Volume</label>
                     <select id="volume-select">
                         <option value="">-- Select Exported Volume --</option>
                     </select>
                 </div>
-                <div class="crud-buttons">
+                <div class="crud-buttons" id="unexport-volume-buttons">
                     <button class="btn btn-danger" onclick="unexportVolume()">
                         <i class="fas fa-unlink"></i> Unexport
                     </button>
@@ -893,6 +898,9 @@
             <!-- Response -->
             <div class="card" id="response-card">
                 <h2><i class="fas fa-reply section-icon"></i> Response</h2>
+                <div class="form-control" id="response-no-system-message" style="display: none;">
+                    <p class="warning-message">Please create a system first to view responses.</p>
+                </div>
                 <pre id="response"></pre>
             </div>
 
@@ -1434,10 +1442,13 @@
                         document.getElementById('settings-no-system-message').style.display = 'none';
                     }
 
-                    // Update form visibility
+                    // Update form visibility for all sections
                     checkVolumeFormVisibility();
                     checkHostFormVisibility();
                     checkSettingsFormVisibility();
+                    checkExportFormVisibility();
+                    checkUnexportFormVisibility();
+                    checkResponseVisibility();
 
                     document.getElementById('update-system-btn').style.display = 'inline';
                     document.getElementById('delete-system-btn').style.display = 'inline';
@@ -1492,6 +1503,9 @@
 
                 document.getElementById('update-system-btn').style.display = 'none';
                 document.getElementById('delete-system-btn').style.display = 'none';
+                checkExportFormVisibility();
+                checkUnexportFormVisibility();
+                checkResponseVisibility();
             });
         }
 
@@ -2111,6 +2125,11 @@
                     }
                 }
             }, 15000); // Refresh every 15 seconds instead of 5
+
+            // Always check export/unexport/response visibility
+            checkExportFormVisibility();
+            checkUnexportFormVisibility();
+            checkResponseVisibility();
         };
 
         function handleVolumeSelection() {
@@ -2329,6 +2348,32 @@
                 loadActiveFaults();
             }
         }, 5000);
+
+        function checkExportFormVisibility() {
+            fetch('/data/system').then(res => res.json()).then(systems => {
+                const visible = systems && systems.length > 0;
+                document.getElementById('export-no-system-message').style.display = visible ? 'none' : 'block';
+                document.getElementById('export-volume-form-fields').style.display = visible ? 'block' : 'none';
+                document.getElementById('export-host-form-fields').style.display = visible ? 'block' : 'none';
+                document.getElementById('export-workload-form-fields').style.display = visible ? 'block' : 'none';
+                document.getElementById('export-volume-buttons').style.display = visible ? 'flex' : 'none';
+            });
+        }
+        function checkUnexportFormVisibility() {
+            fetch('/data/system').then(res => res.json()).then(systems => {
+                const visible = systems && systems.length > 0;
+                document.getElementById('unexport-no-system-message').style.display = visible ? 'none' : 'block';
+                document.getElementById('unexport-volume-form-fields').style.display = visible ? 'block' : 'none';
+                document.getElementById('unexport-volume-buttons').style.display = visible ? 'flex' : 'none';
+            });
+        }
+        function checkResponseVisibility() {
+            fetch('/data/system').then(res => res.json()).then(systems => {
+                const visible = systems && systems.length > 0;
+                document.getElementById('response-no-system-message').style.display = visible ? 'none' : 'block';
+                document.getElementById('response').style.display = visible ? 'block' : 'none';
+            });
+        }
     </script>
 </body>
 

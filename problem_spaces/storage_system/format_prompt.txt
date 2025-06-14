@@ -1,0 +1,24 @@
+Format the following JSON fault analysis into a concise, human-readable report for system {system_name} (Port: {port}) in the {PROBLEM_SPACE} domain. 
+Use the RAG logic to ensure accurate terminology, fault descriptions, and actionable recommendations. 
+Include the fault type, key details (e.g., latency, capacity, saturation), bully volume (highest contributor to the fault) with its contribution percentage, 
+and relevant volume, snapshot, or replication information. Use bullet points for volumes, snapshots, replication issues, and volume contributions. 
+Keep it clear, structured, and under 300 words. Avoid raw JSON or code-like formatting. 
+Only include the highest causing fault and ensure the report is actionable. 
+Use the volume_contributions field from the JSON for consistent reporting. 
+For replication issues, highlight the primary affected volume with 100% contribution. 
+For saturation faults, include saturation_contribution from volume_contributions. 
+If volume_contributions is empty or missing, indicate that contribution data is unavailable and suggest checking system configuration. 
+If fault_type is 'No fault', skip the bully volume section.
+RAG Logic:
+{rag_context}
+
+Example format:
+Fault Report for system {system_name} (Port: {port})
+Fault Type: <type>
+Key Details: <metrics>
+Volume Information: <details with volume size in GB, workload size in KB, throughput in MB/s as (2000 * workload size) / 1024>
+Snapshot Information: <details>
+Volume Contributions:
+- <volume_name> (<volume_id>): capacity contribution: <percentage>% (saturation contribution: <saturation_percentage>% if applicable)
+Bully Volume: <volume and contribution for the applicable fault>
+Next Actions: <detailed actions to be taken including volume specific actions for the identified volumes and the bully volume based on the fault type>

@@ -1,101 +1,85 @@
-# Storage System Simulator
+# Storage System AI Diagnostic Agent
 
-A Python-based REST API app simulating a storage system with JSON persistence and an optional modern UI.
-
-## Setup
-1. Install dependencies: `pip install Flask`- Just one for now.
-2. Run the app: `python app.py`
-   - For UI: `export ENABLE_UI=True` then `python app.py`
-
-## Usage
-- API: Access at `http://localhost:5000` (e.g., `POST /system`)
-- UI (optional): Visit `http://localhost:5000/ui` when enabled
-- Raw JSON: `GET /data/<resource_type>`
-- Terminal: API responses print in green to distinguish from persistent JSON
+This AI agent helps users diagnose and troubleshoot latency issues in storage systems by analyzing metrics, logs, and configurations.
 
 ## Features
-- CRUD for System, Node, Volume, Host, Settings
-- One system per instance (guard rail)
-- Flat JSON persistence in `/data`
-- Plug-and-play modern UI with dropdowns, toggled with `ENABLE_UI`
-- Sidebar to view raw JSON files
 
-## Updates (30/03/2024)
+- Time-aware analysis: Understands temporal references in user queries (e.g., "yesterday at 1am")
+- Tool-based diagnosis: Uses Groq LLM to call tools for fetching relevant data
+- RAG integration: Incorporates support documentation into analysis
+- Visualization: Displays key metrics in interactive charts
+- Conversation history: Maintains context throughout the diagnostic session
 
-### System Metrics and Performance Enhancements
+## Supported Latency Issue Types
 
-#### 1. Latency Calculation
-- Implemented new latency calculation based on system saturation and capacity usage percentages
-- Latency thresholds:
-  - Default: 1ms (≤70% usage)
-  - 2ms (70-80% usage)
-  - 3ms (80-90% usage)
-  - 4ms (90-100% usage)
-  - 5ms (>100% usage)
-- Latency determined by the higher percentage between saturation and capacity usage
+The agent can diagnose three main types of latency faults:
 
-#### 2. Throughput and System Saturation
-- System throughput calculated as sum of all volume throughputs
-- Per-volume throughput formula: IOPS × I/O size
-- Fixed IOPS at 2000 for all volumes
-- I/O size options: 4KB, 8KB, 16KB, 32KB, 64KB, 128KB
-- Workload size taken as input during volume export
-- System saturation percentage = (Total throughput / Max throughput) × 100
+1. **High Capacity Issues**: Detects when storage capacity usage is causing latency
+2. **High Saturation Issues**: Identifies when system is overloaded with I/O
+3. **Replication Link Issues**: Diagnoses problems with replication connections
 
-#### 3. Capacity Management
-- Enhanced capacity tracking for volumes and snapshots
-- Total capacity = Volume capacity + Snapshot capacity
-- Capacity percentage = (Total capacity / Max capacity) × 100
-- Snapshot size matches parent volume size
-- Automatic capacity updates during:
-  - Volume creation/deletion
-  - Snapshot creation/deletion
-  - System cleanup operations
+## Setup Instructions
 
-#### 4. Snapshot Management Improvements
-- Added size tracking for snapshots
-- Automatic snapshot cleanup based on max_snapshots setting
-- Cascade deletion: Deleting a volume now removes all associated snapshots
-- Enhanced logging for snapshot operations including:
-  - Capacity changes
-  - Deletion verification
-  - System metric updates
+### Prerequisites
 
-#### 5. System Metrics Updates
-- Real-time tracking of:
-  - Volume and snapshot capacity
-  - System throughput
-  - Saturation levels
-  - Current latency
-- Detailed logging of metric changes
-- Separate tracking of volume and snapshot capacity
-- System metrics update after all major operations
+- Python 3.8+
+- Groq API key (for LLM access)
 
-#### 6. Logging Enhancements
-- Added detailed capacity change logging
-- Snapshot operation logging with size information
-- System metrics logging with all components
-- Cleanup operation logging with capacity impact
-- Enhanced error logging and verification steps
+### Installation
 
-### Example Calculations:
-```python
-# Capacity
-Total Capacity (GB) = Volume Capacity + Snapshot Capacity
-Capacity Percentage = (Total Capacity / Max Capacity) × 100
+1. Clone this repository:
+   ```
+   git clone <repository-url>
+   cd storage-ai-agent
+   ```
 
-# Throughput
-Volume Throughput (MB/s) = (2000 IOPS × IO_Size_KB) / 1024
-System Saturation = (Total Throughput / Max Throughput) × 100
+2. Install required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-# Latency
-Latency = Based on max(Capacity Percentage, Saturation Percentage)
+3. Set up environment variables (create a `.env` file):
+   ```
+   GROQ_API_KEY=your_groq_api_key_here
+   ```
+
+4. Ensure support documentation is available:
+   - Place your documentation as `support_documentation.pdf` or `support_documentation.txt` in the project root
+
+### Running the Agent
+
+Start the Streamlit app:
+```
+streamlit run ai_agent.py
 ```
 
-### Configuration Notes:
-- Max system capacity defined in system creation
-- Max throughput defined in system creation
-- Snapshot retention count defined in snapshot settings
-- I/O size specified during volume export
-- Default I/O size: 4KB
--Snapshot.json keeps a track of all the snapshots in the system to help with the cleanup and capacity calculation as well
+The web interface will be available at http://localhost:8501
+
+## Usage Instructions
+
+1. Select a storage system from the dropdown menu in the sidebar
+2. Type your query in the text area (e.g., "Why was my latency high yesterday at 1am?")
+3. Click "Analyze" to initiate the diagnostic process
+4. Review the AI's analysis and recommendations
+5. Ask follow-up questions to get more specific information
+
+## Metrics Files Reference
+
+The agent analyzes these key data sources:
+
+- **system_metrics.json**: System-wide metrics (capacity, throughput, saturation)
+- **io_metrics.json**: I/O performance data by volume and host
+- **replication_metrics.json**: Replication performance and status
+- **Log files**: System events and status messages
+
+## Development
+
+To extend the agent with new diagnostic capabilities:
+
+1. Add new tool definitions to `ai_tools.py`
+2. Update the support documentation with relevant information
+3. Enhance visualization in `ai_agent.py` as needed
+
+## License
+
+[MIT License](LICENSE)

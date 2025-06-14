@@ -1,0 +1,32 @@
+[2025-06-14 15:22:46][INFO] System created with ID: 89a838d3-5527-4ad9-9cb2-a28cb3b83a45
+[2025-06-14 15:22:46][INFO] Started background cleanup thread
+[2025-06-14 15:22:46][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:22:56][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:23:06][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:23:16][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:23:26][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:23:36][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:23:47][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 0.00 GB
+[2025-06-14 15:23:50][INFO] Created target volume rep-47a5e8ef for replication and updated system metrics
+[2025-06-14 15:23:50][INFO] Received synchronous replication data for volume rep-47a5e8ef from data/data_instance_5003 (latency: 0.049ms)
+[2025-06-14 15:23:57][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:07][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:17][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:20][INFO] Received synchronous replication data for volume rep-47a5e8ef from data/data_instance_5003 (latency: 3.047ms)
+[2025-06-14 15:24:27][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:37][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:47][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:24:50][INFO] Received synchronous replication data for volume rep-47a5e8ef from data/data_instance_5003 (latency: 3.035ms)
+[2025-06-14 15:24:57][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:07][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:17][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:20][INFO] Received synchronous replication data for volume rep-47a5e8ef from data/data_instance_5003 (latency: 3.023ms)
+[2025-06-14 15:25:27][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:37][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:47][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:25:51][INFO] Received synchronous replication data for volume rep-47a5e8ef from data/data_instance_5003 (latency: 3.012ms)
+[2025-06-14 15:25:57][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:26:07][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:26:17][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB
+[2025-06-14 15:26:21][INFO] Received synchronous replication data for volume rep-47a5e8ef from data/data_instance_5003 (latency: 3.024ms)
+[2025-06-14 15:26:27][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 100.00 GB

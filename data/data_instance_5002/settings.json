@@ -1,0 +1,26 @@
+[
+    {
+        "id": "7f197c8e-1f7a-49b1-acf5-384b32dcb6f9",
+        "system_id": "65f4d1ec-1c70-48f0-9a68-51a4b357b30b",
+        "name": "s1",
+        "type": "snapshot",
+        "value": "5 seconds",
+        "max_snapshots": 15
+    },
+    {
+        "id": "76a780cf-6e2f-4102-827d-60a7ffbb87dd",
+        "system_id": "65f4d1ec-1c70-48f0-9a68-51a4b357b30b",
+        "name": "s2",
+        "type": "snapshot",
+        "value": "60 seconds",
+        "max_snapshots": 1
+    },
+    {
+        "id": "0c329e2b-8883-44ec-ac5c-e87c1bea266b",
+        "system_id": "65f4d1ec-1c70-48f0-9a68-51a4b357b30b",
+        "name": "s3",
+        "type": "snapshot",
+        "value": "30 seconds",
+        "max_snapshots": 2
+    }
+]

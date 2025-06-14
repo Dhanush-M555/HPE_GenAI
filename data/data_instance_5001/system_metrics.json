@@ -1,0 +1,79 @@
+[
+    {
+        "timestamp": "2025-05-28 21:36:55",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    },
+    {
+        "timestamp": "2025-05-28 21:37:25",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    },
+    {
+        "timestamp": "2025-05-28 21:37:55",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    },
+    {
+        "timestamp": "2025-05-28 21:38:25",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    },
+    {
+        "timestamp": "2025-05-28 21:38:55",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    },
+    {
+        "timestamp": "2025-05-28 21:39:25",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    },
+    {
+        "timestamp": "2025-05-28 21:39:55",
+        "throughput_used": 328.125,
+        "capacity_used": 475.0,
+        "saturation": 82.03125,
+        "cpu_usage": 82.03125,
+        "volume_capacity": 475.0,
+        "snapshot_capacity": 0,
+        "capacity_percentage": 19.0,
+        "current_latency": 3.0
+    }
+]

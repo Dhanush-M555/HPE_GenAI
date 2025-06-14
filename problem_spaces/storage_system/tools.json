@@ -1,0 +1,9 @@
+[
+  {
+    "name": "volume_contribution_calculator",
+    "file": "calculate_contribution.py",
+    "function":"run",
+    "parameters": ["fault_analysis", "system_data"],
+    "required": ["fault_analysis", "system_data"]
+  }
+]

@@ -1,25 +1,14 @@
-
-System Monitoring: Fault Diagnosis and 
-Remediation (LLM-Aware) 
-Introduction 
-This document is designed to support an AI diagnostic system in identifying and resolving high 
-latency and system performance issues. It outlines specific files to reference, key data points 
-within those files, and interpretations based on those values. The AI agent should respond 
-to diagnostic queries by referencing these files and using the guidance provided to suggest 
-likely causes. 
-The capacity of the system can be obtained from the max capacity metrics in system.json for a particular port.
 There are 3 types of faults:
             1. High latency due to high system saturation
             2. High latency due to high system capacity
             3. High latency due to replication link issues
 
-The bully volume is the volume which has the highest contribution to a particular fault. Calculate the contribution of the bully volume to the fault and output that.
 1. High Latency Due to System Saturation 
 Files to Check 
  volume.json 
  Key Data: throughput_used, workload_size, size, is_exported, exported_host_id 
  system_metrics_<PORT>.json
- Key Data: saturation, latency, cpu_usage
+ Key Data: saturation, latency
  logs_{port}.txt 
  Key Data: IOPS, throughput, latency, system warnings or errors 
  io_metrics.json 
@@ -27,13 +16,12 @@ Files to Check
 How to Interpret 
  
  If throughput_used in volume.json is close to or exceeds system max throughput, it may indicate resource bottlenecks. 
- High cpu_usage>=80 or saturation>=80 in system_metrics_<PORT>.json suggests system-level resource exhaustion. 
+ Saturation>=80 in system_metrics_<PORT>.json suggests system-level resource exhaustion. 
  A high workload size for a particular volume is also a cause for high system saturation
  If logs show frequent latency spikes or IOPS bursts, it points to transient saturation events. 
  Abnormal latency values in io_metrics.json for specific volumes suggest hotspots or overloaded volumes. 
 Common Root Causes 
- Volumes exceeding their throughput or IOPS limits 
- CPU or network interface saturation 
+ Volumes exceeding their throughput or IOPS limits  
  
 For High latency due to high saturation:
             1. Check system_metrics_<PORT>.json and look at the latest entry
@@ -47,17 +35,14 @@ For High latency due to high capacity:
             1. Check system_metrics_<PORT>.json and look at the latest entry
             2. If capacity_percentage exceeds 80% AND current latency exceeds 3ms, then there is a high latency due to high capacity
             3. The max_capacity can be inferred from system.json, the size of each volume can be inferred from volume.json
-            4. Capacity contribution per volume = (Volume Size / Max Capacity) × 100
-            5. Calculate volume_capacity as ((sum of size of all volumes)/max_capacity)*100, it can also be inferred from system_metrics_<PORT>.json
-            6. Calculate snapshot_capacity as ((size of volume * snapshot_count)/max_capacity)*100 for each volume,it can also be inferred from system_metrics_<PORT>.json
-            7. Total Capacity = Volume Capacity + Snapshot Capacity
+
 Files to Check 
+ system_metrics_{port}.json 
+ Key Data: capacity_used, throughput_used,capacity_percentage
  volume.json 
  Key Data: snapshot_settings, size , volume with the highest contribution is the bully volume
  snapshots.json 
  Key Data: volume_id, snapshot_id, size, created_at 
- system_metrics_{port}.json 
- Key Data: capacity_used, throughput_used 
  logs_{port}.txt 
  Key Data: Snapshot creation and deletion events, warnings on space 
 How to Interpret 
@@ -72,17 +57,13 @@ Common Root Causes
  Snapshot frequency too high 
  Snapshot sizes disproportionately large 
 
-In case of ambiguity between high latency due to high system saturation and high latency due to high system capacity, check the greater value among saturation and capacity_percentage,
-if saturation>80 and saturation>capacity_percentage, it is due to high system saturation, otherwise, it is due high system capacity  
-
 3. High Latency Due to Replication Link Issues 
 For High latency due to replication link issues:
 
-            1.Check logs_<port>.txt and look for the following line
-            [2025-05-04 16:58:28][INFO] System metrics updated - Throughput: 7.81 MB/s, Volume Capacity: 5.00 GB, Snapshot Capacity: 0.00 GB, Total Capacity: 5.00 GB (5.0%), Saturation: 39.06%, Latency: 13.00ms
+            1.Check logs_<port>.txt and look for replication related lines
             If Latency is above 3ms, it means that it is a high latency due to replication link issues
             2. Check replication_metrics_<PORT>.json
-            3. If latency exceeds 5ms for any replication link, then there is a high latency due to replication link issues
+            3. If latency exceeds 3ms for any replication link, then there is a high latency due to replication link issues
             4. For each affected volume, identify the source system, target system, and volume name
 Files to Check 
  logs_<port>.txt
@@ -98,7 +79,7 @@ Files to Check
  logs_{port}.txt 
  Key Data: Replication delays, errors, disconnects 
 How to Interpret 
- latency>=3ms in replication_metrics_<PORT>.json -> replication link issue
+ latency>=3ms in replication_metrics_<PORT>.json and in logs_<port>.txt  -> replication link issue
  If replication_type is synchronous and throughput is low, check for blocking I/O. 
  Errors in logs such as "replication timeout" or "target unreachable" indicate link failure 
 or congestion. 
@@ -116,7 +97,7 @@ When a query like "Why is volume X experiencing high latency?" is received:
 1. Check volume.json: 
  High throughput_used or workload_size? -> Volume saturation 
 2. Check system.json: 
- High cpu_usage or saturation? -> System-wide overload 
+ High saturation? -> System-wide overload 
 3. Review logs_{port}.txt: 
  Latency spikes or export contention? -> External factors or replication interaction 
 4. Inspect io_metrics.json: 
@@ -130,6 +111,5 @@ The same structured logic applies to snapshot-related and replication issues.
 
 
  Only return the highest causing fault as the fault.
-
            
             

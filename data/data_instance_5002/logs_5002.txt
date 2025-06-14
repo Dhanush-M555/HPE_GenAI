@@ -1,0 +1,149 @@
+[2025-06-14 14:34:01][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 50.00 GB
+[2025-06-14 14:34:11][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 350.00 GB
+[2025-06-14 14:34:21][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:34:31][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:34:41][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:34:51][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:01][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:11][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:21][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:31][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:41][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:51][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 450.00 GB
+[2025-06-14 14:35:55][INFO] Snapshot b949441e-b2e5-413a-960b-617f2f9faa90 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 1
+[2025-06-14 14:35:55][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 500.00 GB
+[2025-06-14 14:36:00][INFO] Snapshot a4ebf4b7-47e2-492a-877a-97c7bd8cd10b taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 2
+[2025-06-14 14:36:01][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 550.00 GB
+[2025-06-14 14:36:03][INFO] Snapshot 4b747fae-153e-4c09-a8ba-f6caaaeacdc8 taken for volume a66cadcb-ccde-42dc-a240-2955a41b12fb, frequency 60 sec, size 300 GB, total snapshots: 1
+[2025-06-14 14:36:03][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 850.00 GB
+[2025-06-14 14:36:05][INFO] Snapshot 076b963c-6076-464c-8e03-d43fd8f29f7d taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 3
+[2025-06-14 14:36:10][INFO] Snapshot 0e68592c-7823-4bde-ae45-391f30542a3a taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 4
+[2025-06-14 14:36:11][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 950.00 GB
+[2025-06-14 14:36:15][INFO] Snapshot a12f1585-8e0e-48a6-bef0-7b2dbe914e6b taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 5
+[2025-06-14 14:36:20][INFO] Snapshot c79ca51e-3d8d-49a9-bd73-c207d229686b taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 6
+[2025-06-14 14:36:21][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 1050.00 GB
+[2025-06-14 14:36:25][INFO] Volume: cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Host: 682c5453-ff48-43f2-924c-c855076f16cd, IOPS: 2000, Latency: 1.0ms, Throughput: 62.5 MB/s
+[2025-06-14 14:36:25][INFO] Snapshot c951cdea-6263-4fae-bbb7-470368c34f45 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 7
+[2025-06-14 14:36:30][INFO] Snapshot 18b11ff7-2366-48cc-bbfd-8f1f4913424e taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 8
+[2025-06-14 14:36:31][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 1150.00 GB
+[2025-06-14 14:36:33][INFO] Volume: a66cadcb-ccde-42dc-a240-2955a41b12fb, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 1.0ms, Throughput: 15.625 MB/s
+[2025-06-14 14:36:35][INFO] Snapshot 0e8d04d4-4685-45ee-8ee3-e9b30a3106f0 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 9
+[2025-06-14 14:36:40][INFO] Snapshot cca67cec-2bf8-4973-91c0-8e63ca2cd137 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 10
+[2025-06-14 14:36:41][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 1250.00 GB
+[2025-06-14 14:36:45][INFO] Snapshot 8d6086ce-6101-4dad-bb33-cd716d027c07 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 11
+[2025-06-14 14:36:50][INFO] Snapshot 0f6d7fbd-0c14-4f38-b09a-effa628c0374 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 12
+[2025-06-14 14:36:51][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 1350.00 GB
+[2025-06-14 14:36:55][INFO] Volume: cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Host: 682c5453-ff48-43f2-924c-c855076f16cd, IOPS: 2000, Latency: 1.0ms, Throughput: 62.5 MB/s
+[2025-06-14 14:36:55][INFO] Snapshot 1b4737d5-63dc-4d79-b6f5-02a09b3744e3 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 13
+[2025-06-14 14:37:00][INFO] Snapshot 16feccf3-5f4e-4023-888c-7c6466f3de41 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 14
+[2025-06-14 14:37:01][CLEANUP] Cleanup complete: No snapshots needed removal, Capacity: 1450.00 GB
+[2025-06-14 14:37:03][INFO] Snapshot b97bffa4-0f0a-418a-b9d6-5da8f724beb5 taken for volume a66cadcb-ccde-42dc-a240-2955a41b12fb, frequency 60 sec, size 300 GB, total snapshots: 2
+[2025-06-14 14:37:03][INFO] Volume: a66cadcb-ccde-42dc-a240-2955a41b12fb, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 3.0ms, Throughput: 15.625 MB/s
+[2025-06-14 14:37:05][INFO] Snapshot a8d53e6b-e95e-4c52-800d-117cd6d508de taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 15
+[2025-06-14 14:37:10][INFO] Snapshot 09638a06-ce3e-49c9-b2af-d0c04212bdf4 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:37:11][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 16, Max allowed: 15
+[2025-06-14 14:37:11][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 1 excess snapshots detected (max: 15)
+[2025-06-14 14:37:11][INFO] Deleted snapshot b949441e-b2e5-413a-960b-617f2f9faa90, current snapshots count: 17
+[2025-06-14 14:37:11][INFO] Volume a66cadcb-ccde-42dc-a240-2955a41b12fb, Setting 76a780cf-6e2f-4102-827d-60a7ffbb87dd: Current snapshots: 2, Max allowed: 1
+[2025-06-14 14:37:11][CLEANUP] Volume a66cadcb-ccde-42dc-a240-2955a41b12fb, Setting 76a780cf-6e2f-4102-827d-60a7ffbb87dd: 1 excess snapshots detected (max: 1)
+[2025-06-14 14:37:11][INFO] Deleted snapshot 4b747fae-153e-4c09-a8ba-f6caaaeacdc8, current snapshots count: 16
+[2025-06-14 14:37:11][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1850.00 GB, Freed: 350.00 GB, Final: 1500.00 GB
+[2025-06-14 14:37:16][INFO] Snapshot 6d3bc22e-7aba-4bf4-ba6f-f828f436c873 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:37:21][INFO] Snapshot 887d17f7-25c8-4784-ac4a-904975116720 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:37:21][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:37:21][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:37:21][INFO] Deleted snapshot a4ebf4b7-47e2-492a-877a-97c7bd8cd10b, current snapshots count: 17
+[2025-06-14 14:37:21][INFO] Deleted snapshot 076b963c-6076-464c-8e03-d43fd8f29f7d, current snapshots count: 16
+[2025-06-14 14:37:21][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1600.00 GB, Freed: 100.00 GB, Final: 1500.00 GB
+[2025-06-14 14:37:25][INFO] Volume: cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Host: 682c5453-ff48-43f2-924c-c855076f16cd, IOPS: 2000, Latency: 2.0ms, Throughput: 62.5 MB/s
+[2025-06-14 14:37:26][INFO] Snapshot 4e883ad8-cd86-47a2-b532-f426d6e6a34b taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:37:31][INFO] Snapshot 28a9c274-8e61-4ac5-a2d3-3c6aebd1a2b9 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:37:31][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:37:31][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:37:31][INFO] Deleted snapshot 0e68592c-7823-4bde-ae45-391f30542a3a, current snapshots count: 17
+[2025-06-14 14:37:31][INFO] Deleted snapshot a12f1585-8e0e-48a6-bef0-7b2dbe914e6b, current snapshots count: 16
+[2025-06-14 14:37:31][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1600.00 GB, Freed: 100.00 GB, Final: 1500.00 GB
+[2025-06-14 14:37:33][INFO] Volume: a66cadcb-ccde-42dc-a240-2955a41b12fb, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 2.0ms, Throughput: 15.625 MB/s
+[2025-06-14 14:37:36][INFO] Snapshot d1e35954-e318-4588-a7ea-055771362cb5 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:37:41][INFO] Snapshot 349d13aa-0d4c-4a86-89e7-a02001f66791 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:37:41][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:37:41][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:37:41][INFO] Deleted snapshot c79ca51e-3d8d-49a9-bd73-c207d229686b, current snapshots count: 17
+[2025-06-14 14:37:41][INFO] Deleted snapshot c951cdea-6263-4fae-bbb7-470368c34f45, current snapshots count: 16
+[2025-06-14 14:37:41][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1600.00 GB, Freed: 100.00 GB, Final: 1500.00 GB
+[2025-06-14 14:37:46][INFO] Snapshot dd28d81e-0991-4085-801b-52655e1664d9 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:37:51][INFO] Snapshot d8f65bea-0161-4675-b801-dad4b7e4150b taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:37:51][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:37:51][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:37:51][INFO] Deleted snapshot 18b11ff7-2366-48cc-bbfd-8f1f4913424e, current snapshots count: 17
+[2025-06-14 14:37:51][INFO] Deleted snapshot 0e8d04d4-4685-45ee-8ee3-e9b30a3106f0, current snapshots count: 16
+[2025-06-14 14:37:51][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1600.00 GB, Freed: 100.00 GB, Final: 1500.00 GB
+[2025-06-14 14:37:55][INFO] Volume: cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Host: 682c5453-ff48-43f2-924c-c855076f16cd, IOPS: 2000, Latency: 2.0ms, Throughput: 62.5 MB/s
+[2025-06-14 14:37:56][INFO] Snapshot bb2af1f3-4e7b-473c-9b1a-85b32d52a9b4 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:37:56][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 16, Max allowed: 15
+[2025-06-14 14:37:56][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 1 excess snapshots detected (max: 15)
+[2025-06-14 14:37:56][INFO] Snapshot a02a4120-062b-4ac7-88f5-0963b9ea3bd9 taken for volume 53344766-94c7-4eb2-8bd6-9aea61683b53, frequency 30 sec, size 100 GB, total snapshots: 1
+[2025-06-14 14:37:56][INFO] Deleted snapshot cca67cec-2bf8-4973-91c0-8e63ca2cd137, current snapshots count: 17
+[2025-06-14 14:37:56][CLEANUP] Cleanup complete: 1 snapshots removed, Initial: 1550.00 GB, Freed: 50.00 GB, Final: 1600.00 GB
+[2025-06-14 14:38:01][INFO] Snapshot 2f88cbb1-de48-4194-9fd7-f9c5adccc48d taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:01][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 16, Max allowed: 15
+[2025-06-14 14:38:01][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 1 excess snapshots detected (max: 15)
+[2025-06-14 14:38:01][INFO] Deleted snapshot 8d6086ce-6101-4dad-bb33-cd716d027c07, current snapshots count: 17
+[2025-06-14 14:38:01][CLEANUP] Cleanup complete: 1 snapshots removed, Initial: 1650.00 GB, Freed: 50.00 GB, Final: 1600.00 GB
+[2025-06-14 14:38:03][INFO] Snapshot 02835016-17c8-4f5f-91a3-053ff793062f taken for volume a66cadcb-ccde-42dc-a240-2955a41b12fb, frequency 60 sec, size 300 GB, total snapshots: 2
+[2025-06-14 14:38:03][INFO] Volume: a66cadcb-ccde-42dc-a240-2955a41b12fb, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 4.0ms, Throughput: 15.625 MB/s
+[2025-06-14 14:38:06][INFO] Snapshot 0b165305-8a36-41cc-9f04-30fa8ce3b4b9 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:11][INFO] Snapshot f8c71435-38d0-48dd-95d4-4748bd9b66b0 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:38:11][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:38:11][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:38:11][INFO] Deleted snapshot 0f6d7fbd-0c14-4f38-b09a-effa628c0374, current snapshots count: 19
+[2025-06-14 14:38:11][INFO] Deleted snapshot 1b4737d5-63dc-4d79-b6f5-02a09b3744e3, current snapshots count: 18
+[2025-06-14 14:38:11][INFO] Volume a66cadcb-ccde-42dc-a240-2955a41b12fb, Setting 76a780cf-6e2f-4102-827d-60a7ffbb87dd: Current snapshots: 2, Max allowed: 1
+[2025-06-14 14:38:11][CLEANUP] Volume a66cadcb-ccde-42dc-a240-2955a41b12fb, Setting 76a780cf-6e2f-4102-827d-60a7ffbb87dd: 1 excess snapshots detected (max: 1)
+[2025-06-14 14:38:11][INFO] Deleted snapshot b97bffa4-0f0a-418a-b9d6-5da8f724beb5, current snapshots count: 17
+[2025-06-14 14:38:11][CLEANUP] Cleanup complete: 3 snapshots removed, Initial: 2000.00 GB, Freed: 400.00 GB, Final: 1600.00 GB
+[2025-06-14 14:38:16][INFO] Snapshot 8d7a8847-a121-4e44-a811-f24f27ae98d4 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:21][INFO] Snapshot d718f07d-fca4-4821-91df-3399fed94eac taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:38:21][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:38:21][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:38:21][INFO] Deleted snapshot 16feccf3-5f4e-4023-888c-7c6466f3de41, current snapshots count: 18
+[2025-06-14 14:38:21][INFO] Deleted snapshot a8d53e6b-e95e-4c52-800d-117cd6d508de, current snapshots count: 17
+[2025-06-14 14:38:21][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1700.00 GB, Freed: 100.00 GB, Final: 1600.00 GB
+[2025-06-14 14:38:25][INFO] Volume: cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Host: 682c5453-ff48-43f2-924c-c855076f16cd, IOPS: 2000, Latency: 2.0ms, Throughput: 62.5 MB/s
+[2025-06-14 14:38:26][INFO] Snapshot 7d228619-b9c7-4af3-88ac-cc3c99f8a32e taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:26][INFO] Volume: 53344766-94c7-4eb2-8bd6-9aea61683b53, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 3.0ms, Throughput: 7.8125 MB/s
+[2025-06-14 14:38:26][INFO] Snapshot 3499371d-0bff-4b78-890f-2b286e7347fe taken for volume 53344766-94c7-4eb2-8bd6-9aea61683b53, frequency 30 sec, size 100 GB, total snapshots: 2
+[2025-06-14 14:38:31][INFO] Snapshot d4380bac-095d-40e8-a1d0-274c206c8941 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:38:31][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:38:31][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:38:31][INFO] Deleted snapshot 09638a06-ce3e-49c9-b2af-d0c04212bdf4, current snapshots count: 19
+[2025-06-14 14:38:31][INFO] Deleted snapshot 6d3bc22e-7aba-4bf4-ba6f-f828f436c873, current snapshots count: 18
+[2025-06-14 14:38:31][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1800.00 GB, Freed: 100.00 GB, Final: 1700.00 GB
+[2025-06-14 14:38:33][INFO] Volume: a66cadcb-ccde-42dc-a240-2955a41b12fb, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 3.0ms, Throughput: 15.625 MB/s
+[2025-06-14 14:38:36][INFO] Snapshot bf570d69-c3bc-4d65-9e31-69535976aeaa taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:41][INFO] Snapshot e2d3040d-2aa0-468d-9700-ecc596ed7665 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:38:41][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:38:41][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:38:41][INFO] Deleted snapshot 887d17f7-25c8-4784-ac4a-904975116720, current snapshots count: 19
+[2025-06-14 14:38:41][INFO] Deleted snapshot 4e883ad8-cd86-47a2-b532-f426d6e6a34b, current snapshots count: 18
+[2025-06-14 14:38:41][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1800.00 GB, Freed: 100.00 GB, Final: 1700.00 GB
+[2025-06-14 14:38:46][INFO] Snapshot 97db08f0-d0e0-441d-8424-cf8b5873a74f taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:51][INFO] Snapshot 9b7e6ed9-eda9-4ea4-b8e5-3a3bf9e2118e taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:38:51][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:38:51][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:38:51][INFO] Deleted snapshot 28a9c274-8e61-4ac5-a2d3-3c6aebd1a2b9, current snapshots count: 19
+[2025-06-14 14:38:51][INFO] Deleted snapshot d1e35954-e318-4588-a7ea-055771362cb5, current snapshots count: 18
+[2025-06-14 14:38:51][CLEANUP] Cleanup complete: 2 snapshots removed, Initial: 1800.00 GB, Freed: 100.00 GB, Final: 1700.00 GB
+[2025-06-14 14:38:55][INFO] Volume: cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Host: 682c5453-ff48-43f2-924c-c855076f16cd, IOPS: 2000, Latency: 3.0ms, Throughput: 62.5 MB/s
+[2025-06-14 14:38:56][INFO] Snapshot 6096f868-fb8f-4345-becd-bc03151798e0 taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 16
+[2025-06-14 14:38:56][INFO] Volume: 53344766-94c7-4eb2-8bd6-9aea61683b53, Host: f22ad096-f00f-4839-841e-60e72176f093, IOPS: 2000, Latency: 3.0ms, Throughput: 7.8125 MB/s
+[2025-06-14 14:38:56][INFO] Snapshot 055e8bbd-e236-45a7-9974-cfe43fee2b3b taken for volume 53344766-94c7-4eb2-8bd6-9aea61683b53, frequency 30 sec, size 100 GB, total snapshots: 3
+[2025-06-14 14:39:01][INFO] Snapshot ebeeaff1-d2be-42f5-97c3-518fe1d2896c taken for volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, frequency 5 sec, size 50 GB, total snapshots: 17
+[2025-06-14 14:39:01][INFO] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: Current snapshots: 17, Max allowed: 15
+[2025-06-14 14:39:01][CLEANUP] Volume cc3ec8b6-9ddd-4bbf-b458-e39e598cc524, Setting 7f197c8e-1f7a-49b1-acf5-384b32dcb6f9: 2 excess snapshots detected (max: 15)
+[2025-06-14 14:39:01][INFO] Deleted snapshot 349d13aa-0d4c-4a86-89e7-a02001f66791, current snapshots count: 20
+[2025-06-14 14:39:01][INFO] Deleted snapshot dd28d81e-0991-4085-801b-52655e1664d9, current snapshots count: 19
+[2025-06-14 14:39:01][INFO] Volume 53344766-94c7-4eb2-8bd6-9aea61683b53, Setting 0c329e2b-8883-44ec-ac5c-e87c1bea266b: Current snapshots: 3, Max allowed: 2
+[2025-06-14 14:39:01][CLEANUP] Volume 53344766-94c7-4eb2-8bd6-9aea61683b53, Setting 0c329e2b-8883-44ec-ac5c-e87c1bea266b: 1 excess snapshots detected (max: 2)
+[2025-06-14 14:39:01][INFO] Deleted snapshot a02a4120-062b-4ac7-88f5-0963b9ea3bd9, current snapshots count: 18
+[2025-06-14 14:39:01][CLEANUP] Cleanup complete: 3 snapshots removed, Initial: 1900.00 GB, Freed: 200.00 GB, Final: 1700.00 GB

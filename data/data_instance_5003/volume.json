@@ -1,0 +1,24 @@
+[
+    {
+        "id": "47a5e8ef-b8f2-4e28-b3bc-b698d2604116",
+        "name": "v1",
+        "system_id": "28b71135-956b-435f-bef3-f597d3a6f2d2",
+        "size": 100,
+        "is_exported": true,
+        "exported_host_id": "fcc3f689-ae07-4a52-ba97-6f51d8a1acad",
+        "workload_size": 8,
+        "snapshot_settings": {},
+        "replication_settings": [
+            {
+                "setting_id": "ba79a2b7-ce12-410d-a98d-693dadefd96a",
+                "replication_type": "synchronous",
+                "delay_sec": 0,
+                "replication_target": {
+                    "id": "89a838d3-5527-4ad9-9cb2-a28cb3b83a45",
+                    "name": "System 5004"
+                }
+            }
+        ],
+        "snapshot_frequencies": []
+    }
+]

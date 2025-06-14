@@ -28,7 +28,7 @@ llm = ChatOpenAI(
 )
 
 # === Load and Chunk RCA Document ===
-print("🔍 Loading and splitting RCA document...")
+print("\n\n🔍 Loading and splitting RCA document...")
 if not os.path.exists(TEXT_PATH):
     raise FileNotFoundError(f"Text file not found at {TEXT_PATH}")
 loader = TextLoader(TEXT_PATH)
@@ -63,7 +63,7 @@ def extract_relevant_data(state: AgentState) -> AgentState:
     port = int(port_match.group(1)) if port_match else 5000
 
     # Load system data
-    data_dir = f"data_instance_{port}"
+    data_dir = f"data/data_instance_{port}"
     system_data = {}
     system_metrics = {}
     if not os.path.exists(data_dir):
@@ -307,31 +307,44 @@ def format_response(state: AgentState) -> AgentState:
     port = state["port"]
 
     formatting_prompt = ChatPromptTemplate.from_messages([
-        SystemMessage(content=(
-            f"Format the following JSON fault analysis into a concise, human-readable report for system {system_name} (Port: {port}). "
-            "Include the fault type, key details (e.g., latency, capacity, saturation), bully volume (highest contributor to the fault) with its contribution percentage for that fault, "
-            "and relevant volume, snapshot, or replication information. Use bullet points for volumes, snapshots, replication issues, and volume contributions. "
-            "Keep it clear, structured, and under 300 words. Avoid raw JSON or code-like formatting. "
-            "Only include the highest causing fault and ensure the report is actionable. "
-            "Use the volume_contributions field from the JSON for consistent volume contribution reporting. "
-            "For replication issues, highlight the primary affected volume with 100% contribution. "
-            "For saturation faults, include saturation_contribution from volume_contributions. "
-            "If volume_contributions is empty or missing, indicate that volume contribution data is unavailable and suggest checking system configuration.\n"
-            "Use the fault_analysis numbers only, don't make assumptions about the calculations.\n"
-            "Example format:\n"
-            f"Fault Report for {system_name} (Port: {port})\n"
-            "Fault Type: <type>\n"
-            "Key Details: <metrics>\n"
-            "Replication Issues: <details>\n"
-            "Volume Information: <details with volume size in GB, workload size in KB if available>\n"
-            "Snapshot Information: <details>\n"
-            "Volume Contributions:\n"
-            "- <volume_name> (<volume_id>): capacity contribution: <contribution_percentage>% (saturation contribution: <saturation_contribution>% if applicable)\n"
-            "Bully Volume: <volume and contribution from volume_contributions for the applicable fault>\n"
-            "Next Actions: <detailed actions to be taken>\n"
-        )),
-        HumanMessage(content=f"JSON Analysis:\n{json.dumps(fault_analysis, indent=2)}")
-    ])
+    SystemMessage(content=(
+        f"Format the following JSON fault analysis into a concise, human-readable report for system {system_name} (Port: {port}). "
+        "Include the fault type, key details (e.g., latency, capacity, saturation), and relevant volume, snapshot, or replication information. "
+        "Use bullet points for volumes, snapshots, replication issues, and volume contributions. "
+        "Keep it clear, structured, and under 300 words. Avoid raw JSON or code-like formatting. "
+        "Only include the highest causing fault and ensure the report is actionable. "
+
+        # Volume contribution rules
+        "Use the volume_contributions field from the JSON for consistent volume contribution reporting. "
+        "For saturation faults, include saturation_contribution from volume_contributions. "
+        "If volume_contributions is empty or missing, indicate that volume contribution data is unavailable and suggest checking system configuration. "
+
+        # Special rules for replication faults
+        "For replication issues, report them only if this system is the source (i.e., latency is observed in its replication_metrics file). "
+        "Do not treat target system replication latency as a fault. Only show replication issues with latency >= 3 ms. "
+        "When reporting replication faults, highlight the primary affected volume with 100% contribution. "
+
+        # Conditional sections
+        "If fault_type is 'No fault', omit the 'Bully Volume' section entirely. "
+        "Otherwise, include them with appropriate data from volume_contributions. "
+
+        # Report format guide
+        "Use this structure:\n"
+        f"Fault Report for System {system_name}\n"
+        "Fault Type: <type>\n"
+        "Key Details: <metrics>\n"
+        "Replication Issues: <only if fault_type is replication-related>\n"
+        "Volume Information: <details with volume size in GB, workload size in KB if available,  throughput in MB/s as (2000 * workload size) / 1024>\n"
+        "Snapshot Information: <only if fault_type is snapshot-related>\n"
+        "Volume Contributions:\n"
+        "- <volume_name> (<volume_id>): capacity contribution: <contribution_percentage>% "
+        "(saturation contribution: <saturation_contribution>% if applicable)\n"
+        "[Only if fault_type is not 'No fault']\n"
+        "Bully Volume: <volume and contribution from volume_contributions for the applicable fault>\n"
+        "Next Actions: <detailed actions to be taken>\n"
+    )),
+    HumanMessage(content=f"JSON Analysis:\n{json.dumps(fault_analysis, indent=2)}")
+])
 
     messages = [
         SystemMessage(content=formatting_prompt.messages[0].content),
@@ -376,9 +389,9 @@ def main():
         try:
             state = {"query": query, "port": 0, "system_name": "", "context": "", "fault_analysis": {}, "formatted_report": "", "system_data": {}, "system_metrics": {}}
             result = app.invoke(state)
-            print("\n" + "="*50)
+            print("\n" + "="*100)
             print(result["formatted_report"])
-            print("="*50 + "\n")
+            print("="*100 + "\n")
         except Exception as e:
             print(f"❌ Error during analysis: {e}")
 

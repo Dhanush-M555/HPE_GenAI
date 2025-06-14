@@ -1,0 +1,50 @@
+{
+    "fault_analysis_structure": {
+    "fault_type": {
+      "type": "string",
+      "enum": [
+        "High latency due to high capacity",
+        "High latency due to high saturation",
+        "High latency due to replication link issues",
+        "No fault"
+      ]
+    },
+    "details": {
+      "latency": "<latency value from system_metrics>",
+      "capacity_percentage": "<capacity percentage inferred from system_metrics and volumes>",
+      "saturation": "<saturation percentage from system_metrics>",
+      "volume_capacity": "<total volume capacity from volume data>",
+      "snapshot_capacity": "<total snapshot capacity from snapshot data>",
+      "maximum_capacity": "<maximum capacity from system_data>",
+      "maximum_throughput": "<maximum throughput from system_data>",
+      "volume_details": [
+        {
+          "volume_id": "<volume id>",
+          "name": "<volume name>",
+          "size": "<size>",
+          "snapshot_count": "<snapshot count>",
+          "throughput": "<throughput from volume or io_metrics>",
+          "workload_size": "<workload size from volume or io_metrics>"
+        }
+      ],
+      "replication_issues": [
+        {
+          "volume_id": "<volume id>",
+          "volume_name": "<volume name>",
+          "target_id": "<target system id>",
+          "target_system_name": "<target system name>",
+          "latency": "<latency value>",
+          "timestamp": "<timestamp>"
+        }
+      ],
+      "tool_call": {
+        "tool_name": "volume_contribution_calculator",
+        "parameters": {
+          "fault_analysis": "fault_analysis",
+          "system_data": "system_data"
+        }
+      }
+      
+    }
+  }
+}
